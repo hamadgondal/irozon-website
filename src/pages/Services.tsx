@@ -1,7 +1,4 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Smartphone, Globe, Palette, Sparkles } from "lucide-react";
 import serviceMobile from "@/assets/service-mobile.jpg";
@@ -11,7 +8,6 @@ import serviceDesign from "@/assets/service-design.jpg";
 import { useNavigate } from "react-router-dom";
 
 const Services = () => {
-  const [activeService, setActiveService] = useState(0);
   const navigate = useNavigate();
 
   const services = [
@@ -75,8 +71,6 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-
       <main className="pt-24">
         {/* Hero Section */}
         <div className="px-6 py-8 max-w-7xl mx-auto">
@@ -192,8 +186,6 @@ const Services = () => {
           })}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

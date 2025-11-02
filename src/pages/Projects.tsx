@@ -104,8 +104,6 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navigation />
-
       {/* Featured Work Section */}
       <section className="pt-32 py-20 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
@@ -190,8 +188,6 @@ const Projects = () => {
         isOpen={isDialogOpen}
         onClose={() => setIsDialogOpen(false)}
       />
-
-      <Footer />
     </div>
   );
 };

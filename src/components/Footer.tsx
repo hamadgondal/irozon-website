@@ -116,7 +116,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>©2025 irozon. All Rights Reserved.</p>
-          <p>Way ahead</p>
+          <p>organisationsnummer: 123xxx</p>
         </div>
       </div>
     </motion.footer>
