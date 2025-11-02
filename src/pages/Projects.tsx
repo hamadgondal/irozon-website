@@ -2,15 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
+import ProjectDetailsDialog, { Project } from "@/components/ProjectDetailsDialog";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -20,13 +12,12 @@ import project6 from "@/assets/project-6.jpg";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All Categories");
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const categories = ["All Categories", "Mobile App", "Branding", "Web Application", "UX/UI"];
 
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
       title: "The Dark Side",
@@ -101,22 +92,9 @@ const Projects = () => {
     },
   ];
 
-  const handleProjectClick = (project: (typeof projects)[0]) => {
+  const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
-    setCurrentImageIndex(0);
     setIsDialogOpen(true);
-  };
-
-  const handleNextImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev === selectedProject.images.length - 1 ? 0 : prev + 1));
-    }
-  };
-
-  const handlePrevImage = () => {
-    if (selectedProject) {
-      setCurrentImageIndex((prev) => (prev === 0 ? selectedProject.images.length - 1 : prev - 1));
-    }
   };
 
   const filteredProjects =
@@ -207,89 +185,11 @@ const Projects = () => {
         </div>
       </section>
 
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          {selectedProject && (
-            <>
-              <DialogHeader>
-                <DialogTitle className="text-3xl font-bold">{selectedProject.title}</DialogTitle>
-                <DialogDescription className="text-lg">
-                  {selectedProject.category} Project
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="space-y-6">
-                <div className="relative aspect-video rounded-lg overflow-hidden group">
-                  <img
-                    src={selectedProject.images[currentImageIndex]}
-                    alt={`${selectedProject.title} - Image ${currentImageIndex + 1}`}
-                    className="w-full h-full object-cover"
-                  />
-
-                  {/* Navigation Arrows */}
-                  {selectedProject.images.length > 1 && (
-                    <>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={handlePrevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        <ChevronLeft className="h-6 w-6" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={handleNextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        <ChevronRight className="h-6 w-6" />
-                      </Button>
-
-                      {/* Image Counter */}
-                      <div className="absolute bottom-4 right-4 bg-black/50 text-white px-3 py-1 rounded-xl text-sm">
-                        {currentImageIndex + 1} / {selectedProject.images.length}
-                      </div>
-                    </>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-2 gap-4 py-4 border-y border-border">
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Client</p>
-                    <p className="font-medium">{selectedProject.client}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Year</p>
-                    <p className="font-medium">{selectedProject.year}</p>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">About the Project</h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {selectedProject.description}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold mb-3">Technologies Used</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-4 py-2 bg-[hsl(var(--button-base))] text-[hsl(var(--button-base-foreground))] rounded-xl text-sm font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+      <ProjectDetailsDialog
+        project={selectedProject}
+        isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+      />
 
       <Footer />
     </div>
