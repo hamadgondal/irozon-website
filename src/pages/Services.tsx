@@ -162,7 +162,6 @@ const Services = () => {
                         <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </motion.div>
-
                     {/* Image Side */}
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? 30 : -30 }}

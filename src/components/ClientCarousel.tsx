@@ -5,16 +5,15 @@ import { Link } from "react-router-dom";
 
 const ClientCarousel = () => {
   const clients = [
-    {
-      name: "HWI Dubai",
-      logo: null,
-      website: "http://www.healthworld-international.com/",
-    },
+    { name: "HWI Dubai", logo: null, website: "http://www.healthworld-international.com/" },
     { name: "Indigo Oman", logo: null, website: "https://indigo-oman.com/" },
     { name: "MK1 UAE", logo: null, website: "https://www.instagram.com/mk1_uae/" },
     { name: "Al Mouj Muscat", logo: null, website: "https://www.almouj.com/en/" },
     { name: "Omantel", logo: null, website: "https://www.omantel.om/" },
+    { name: "Trescorp", logo: null, website: "http://trescorp.biz/" },
   ];
+
+  const duplicatedClients = [...clients, ...clients, ...clients];
 
   return (
     <section className="py-20 px-6 bg-muted/30">
@@ -37,41 +36,45 @@ const ClientCarousel = () => {
         <Carousel
           opts={{
             align: "start",
-            loop: true,
+            loop: true, // This enables infinite loop
+            slidesToScroll: 1,
           }}
           plugins={[
             Autoplay({
               delay: 3000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
             }),
           ]}
           className="w-full"
         >
-          <CarouselContent>
-            {clients.map((client, index) => (
-              <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/4">
+          <CarouselContent className="-ml-4">
+            {duplicatedClients.map((client, index) => (
+              <CarouselItem
+                key={`${client.name}-${index}`}
+                className="pl-4 md:basis-1/3 lg:basis-1/4"
+              >
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  viewport={{ once: false }} // Allow re-trigger on loop
+                  transition={{ duration: 0.4, delay: (index % clients.length) * 0.1 }}
                   className="p-8 flex items-center justify-center h-full"
                 >
                   <Link
                     to={client.website || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center h-full"
+                    className="flex items-center justify-center h-full w-full"
                   >
                     {client.logo ? (
-                      // 1. RENDER IMAGE (if client.logo exists)
                       <img
                         src={client.logo}
                         alt={client.name}
                         className="max-w-full max-h-[80px] object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
                       />
                     ) : (
-                      // 2. RENDER NAME (if client.logo does NOT exist)
-                      <div className="text-2xl md:text-lg font-bold text-foreground/40 hover:text-foreground transition-colors text-center">
+                      <div className="text-xl md:text-lg font-bold text-foreground/40 hover:text-foreground transition-colors text-center">
                         {client.name}
                       </div>
                     )}

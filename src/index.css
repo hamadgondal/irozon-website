@@ -20,16 +20,16 @@ All colors MUST be HSL.
     /* Custom button colors */
     --button-base: 0 0% 15%;
     --button-base-foreground: 0 0% 98%;
-    --button-hover: 164 97% 39%;
+    --button-hover: 129 61% 52%;
     --button-hover-foreground: 0 0% 98%;
 
     /* Header/Footer colors */
     --header-footer: 0 0% 92%;
     --header-footer-foreground: 0 0% 98%;
 
-    --primary: 164 97% 39%;
+    --primary: 129 61% 52%;
     --primary-foreground: 0 0% 98%;
-    --primary-gradient: linear-gradient(183deg, #35d063, #02C685);
+    --primary-gradient: linear-gradient(183deg, #35d063, #02c685);
 
     --secondary: 0 0% 45%;
     --secondary-foreground: 0 0% 98%;
@@ -48,7 +48,7 @@ All colors MUST be HSL.
     --ring: 164 97% 39%;
 
     --radius: 1rem;
-    
+
     /* Custom colors for cards */
     --card-blue: 200 85% 45%;
     --card-peach: 25 90% 75%;
@@ -95,7 +95,7 @@ All colors MUST be HSL.
 
     --primary: 164 97% 39%;
     --primary-foreground: 0 0% 98%;
-    --primary-gradient: linear-gradient(183deg, #35d063, #02C685);
+    --primary-gradient: linear-gradient(183deg, #35d063, #02c685);
 
     --secondary: 0 0% 60%;
     --secondary-foreground: 0 0% 10%;

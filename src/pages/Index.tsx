@@ -12,7 +12,7 @@ const Index = () => {
       </section>
 
       {/* What We Offer Section */}
-      <section className="bg-[hsl(0,0%,96%)]">
+      <section className="bg-[hsl(0,0%,100%)]">
         <Services />
       </section>
 
@@ -22,7 +22,7 @@ const Index = () => {
       </section>
 
       {/* Our Work Section */}
-      <section className="bg-[hsl(0,0%,96%)]">
+      <section className="bg-[hsl(0,0%,100%)]">
         <PortfolioGrid />
       </section>
     </div>
