@@ -1,34 +1,69 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Smartphone, Globe, Palette, Sparkles } from "lucide-react";
+import serviceMobile from "@/assets/service-mobile.jpg";
+import serviceWeb from "@/assets/service-web.jpg";
+import serviceBrand from "@/assets/service-brand.jpg";
+import serviceDesign from "@/assets/service-design.jpg";
 
 const Services = () => {
+  const [activeService, setActiveService] = useState(0);
+
   const services = [
     {
-      number: "01.",
-      title: "Photography",
-      description: "We offer professional photography services for products, events, and corporate needs. Our photographers capture high-quality images that tell your story and highlight the unique aspects of your brand.",
-      image: "/src/assets/project-1.jpg",
+      number: "01",
+      title: "Mobile App Development",
+      icon: Smartphone,
+      description: "Building high-performance, native (iOS & Android) and cross-platform applications. We ensure speed, stability, and a flawless user experience on every device.",
+      details: [
+        "Native iOS & Android Development",
+        "Cross-platform Solutions",
+        "App Store Optimization",
+        "Performance & Security"
+      ],
+      image: serviceMobile,
     },
     {
-      number: "02.",
-      title: "Brand Identity",
-      description: "Creating unique visual identities that capture the essence of your brand and resonate with your audience. From logos to complete brand guidelines, we craft memorable experiences.",
-      image: "/src/assets/project-2.jpg",
+      number: "02",
+      title: "Web & App Development",
+      icon: Globe,
+      description: "Engineering scalable web applications and custom CMS-driven websites. We deliver robust, secure, and future-proof digital platforms designed for growth.",
+      details: [
+        "Custom Web Applications",
+        "E-commerce Solutions",
+        "CMS Development",
+        "API Integration"
+      ],
+      image: serviceWeb,
     },
     {
-      number: "03.",
-      title: "Web Design",
-      description: "Modern, responsive websites designed to provide exceptional user experiences and drive results. We combine aesthetics with functionality to create digital experiences that convert.",
-      image: "/src/assets/project-3.jpg",
+      number: "03",
+      title: "Brand Identity & Strategy",
+      icon: Palette,
+      description: "Designing complete brand systems—from logo creation and voice development to comprehensive style guides that ensure a unified, memorable presence.",
+      details: [
+        "Logo & Visual Identity",
+        "Brand Guidelines",
+        "Marketing Collateral",
+        "Brand Strategy"
+      ],
+      image: serviceBrand,
     },
     {
-      number: "04.",
-      title: "Creative Direction",
-      description: "Strategic creative guidance to ensure your projects achieve their full artistic and commercial potential. We help bring your vision to life with expert direction.",
-      image: "/src/assets/project-4.jpg",
+      number: "04",
+      title: "UI/UX & Graphic Design",
+      icon: Sparkles,
+      description: "Creating intuitive User Interfaces (UI) and compelling User Experiences (UX). This includes all necessary graphic assets, marketing materials, and digital visuals.",
+      details: [
+        "User Interface Design",
+        "User Experience Research",
+        "Prototyping & Testing",
+        "Design Systems"
+      ],
+      image: serviceDesign,
     },
   ];
 
@@ -36,64 +71,117 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <main className="pt-24">
+        {/* Hero Section */}
+        <div className="px-6 py-20 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-20"
+            className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-foreground">
-              Our Services
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+              What We Do Best
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-              Capturing moments that tell a story, I create striking images that leave a lasting impression. From vivid portraits to cinematic landscapes, every shot is crafted with precision, emotion, and a unique artistic vision.
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Comprehensive creative and technical solutions tailored to bring your vision to life with cutting-edge technology and innovative design.
             </p>
           </motion.div>
+        </div>
 
-          <div className="space-y-8">
-            {services.map((service, index) => (
+        {/* Services List */}
+        <div className="space-y-0">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            const isEven = index % 2 === 0;
+            
+            return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative rounded-3xl overflow-hidden group h-[500px] md:h-[600px]"
+                transition={{ duration: 0.6 }}
+                className={`min-h-screen flex items-center ${
+                  index % 2 === 0 ? 'bg-background' : 'bg-[hsl(0,0%,96%)]'
+                }`}
               >
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                </div>
-                
-                <div className="relative h-full flex flex-col justify-between p-8 md:p-12 lg:p-16">
-                  <div className="text-white/60 text-lg md:text-xl font-light">
-                    {service.number}
-                  </div>
-                  
-                  <div className="space-y-6">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                      {service.title}
-                    </h2>
-                    <p className="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed">
-                      {service.description}
-                    </p>
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      className="rounded-full group/btn"
+                <div className="w-full max-w-7xl mx-auto px-6 py-20">
+                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
+                    !isEven ? 'lg:flex-row-reverse' : ''
+                  }`}>
+                    {/* Content Side */}
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className={`space-y-8 ${!isEven ? 'lg:order-2' : ''}`}
                     >
-                      View Work
-                      <ArrowUpRight className="ml-2 w-5 h-5 transition-transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1" />
-                    </Button>
+                      <div className="flex items-center gap-4">
+                        <span className="text-6xl md:text-7xl font-bold text-primary/20">
+                          {service.number}
+                        </span>
+                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                          <Icon className="w-8 h-8 text-primary" />
+                        </div>
+                      </div>
+
+                      <div>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+                          {service.title}
+                        </h2>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      <div className="space-y-3">
+                        {service.details.map((detail, idx) => (
+                          <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
+                            className="flex items-center gap-3 text-foreground"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            <span className="text-base">{detail}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      <Button 
+                        size="lg" 
+                        className="group rounded-full"
+                      >
+                        Learn More
+                        <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </motion.div>
+
+                    {/* Image Side */}
+                    <motion.div
+                      initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className={`relative ${!isEven ? 'lg:order-1' : ''}`}
+                    >
+                      <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                        <img 
+                          src={service.image} 
+                          alt={service.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </main>
 
