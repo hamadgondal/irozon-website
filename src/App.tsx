@@ -8,15 +8,21 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import NotFound from "./pages/NotFound";
+import PageViewTracker from "@/components/PageViewTracker";
+import ReactGA from "react-ga4";
+
+const GA4_MEASUREMENT_ID = "G-P5DBM073EK";
+// Initialize GA4 before the App component renders
+ReactGA.initialize(GA4_MEASUREMENT_ID);
 
 const queryClient = new QueryClient();
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageViewTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />

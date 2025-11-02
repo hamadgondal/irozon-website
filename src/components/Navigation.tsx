@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Home, Briefcase, Mail, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +8,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const menuItems = [
     { label: "Home", href: "/", icon: Home },
@@ -57,7 +58,9 @@ const Navigation = () => {
                 <Link key={item.label} to={item.href}>
                   <motion.span
                     whileHover={{ y: -2 }}
-                    className="text-sm font-medium text-foreground hover:text-primary transition-colors inline-block"
+                    className={`text-sm font-medium text-foreground hover:text-primary transition-colors inline-block ${
+                      location.pathname === item.href ? "font-semibold text-primary" : ""
+                    }`}
                   >
                     {item.label}
                   </motion.span>
@@ -82,7 +85,9 @@ const Navigation = () => {
                       key={item.label}
                       to={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center gap-4 text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      className={`flex items-center gap-4 text-lg font-medium text-foreground hover:text-primary transition-colors ${
+                        location.pathname === item.href ? "font-semibold text-primary" : ""
+                      }`}
                     >
                       <Icon className="h-5 w-5" />
                       {item.label}

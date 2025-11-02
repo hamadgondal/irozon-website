@@ -8,21 +8,24 @@ import serviceMobile from "@/assets/service-mobile.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
 import serviceBrand from "@/assets/service-brand.jpg";
 import serviceDesign from "@/assets/service-design.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0);
+  const navigate = useNavigate();
 
   const services = [
     {
       number: "01",
       title: "Mobile App Development",
       icon: Smartphone,
-      description: "Building high-performance, native (iOS & Android) and cross-platform applications. We ensure speed, stability, and a flawless user experience on every device.",
+      description:
+        "Building high-performance, native (iOS & Android) and cross-platform applications. We ensure speed, stability, and a flawless user experience on every device.",
       details: [
         "Native iOS & Android Development",
         "Cross-platform Solutions",
         "App Store Optimization",
-        "Performance & Security"
+        "Performance & Security",
       ],
       image: serviceMobile,
     },
@@ -30,12 +33,13 @@ const Services = () => {
       number: "02",
       title: "Web & App Development",
       icon: Globe,
-      description: "Engineering scalable web applications and custom CMS-driven websites. We deliver robust, secure, and future-proof digital platforms designed for growth.",
+      description:
+        "Engineering scalable web applications and custom CMS-driven websites. We deliver robust, secure, and future-proof digital platforms designed for growth.",
       details: [
         "Custom Web Applications",
         "E-commerce Solutions",
         "CMS Development",
-        "API Integration"
+        "API Integration",
       ],
       image: serviceWeb,
     },
@@ -43,12 +47,13 @@ const Services = () => {
       number: "03",
       title: "Brand Identity & Strategy",
       icon: Palette,
-      description: "Designing complete brand systems—from logo creation and voice development to comprehensive style guides that ensure a unified, memorable presence.",
+      description:
+        "Designing complete brand systems—from logo creation and voice development to comprehensive style guides that ensure a unified, memorable presence.",
       details: [
         "Logo & Visual Identity",
         "Brand Guidelines",
         "Marketing Collateral",
-        "Brand Strategy"
+        "Brand Strategy",
       ],
       image: serviceBrand,
     },
@@ -56,12 +61,13 @@ const Services = () => {
       number: "04",
       title: "UI/UX & Graphic Design",
       icon: Sparkles,
-      description: "Creating intuitive User Interfaces (UI) and compelling User Experiences (UX). This includes all necessary graphic assets, marketing materials, and digital visuals.",
+      description:
+        "Creating intuitive User Interfaces (UI) and compelling User Experiences (UX). This includes all necessary graphic assets, marketing materials, and digital visuals.",
       details: [
         "User Interface Design",
         "User Experience Research",
         "Prototyping & Testing",
-        "Design Systems"
+        "Design Systems",
       ],
       image: serviceDesign,
     },
@@ -70,21 +76,20 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <main className="pt-24">
         {/* Hero Section */}
-        <div className="px-6 py-20 max-w-7xl mx-auto">
+        <div className="px-6 py-8 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
-              What We Do Best
-            </h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">What We Do Best</h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Comprehensive creative and technical solutions tailored to bring your vision to life with cutting-edge technology and innovative design.
+              Comprehensive creative and technical solutions tailored to bring your vision to life
+              with cutting-edge technology and innovative design.
             </p>
           </motion.div>
         </div>
@@ -94,7 +99,7 @@ const Services = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             const isEven = index % 2 === 0;
-            
+
             return (
               <motion.div
                 key={index}
@@ -102,21 +107,23 @@ const Services = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className={`min-h-screen flex items-center ${
-                  index % 2 === 0 ? 'bg-background' : 'bg-[hsl(0,0%,96%)]'
+                className={`flex items-center ${
+                  index % 2 === 0 ? "bg-background" : "bg-[hsl(0,0%,96%)]"
                 }`}
               >
                 <div className="w-full max-w-7xl mx-auto px-6 py-20">
-                  <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
-                    !isEven ? 'lg:flex-row-reverse' : ''
-                  }`}>
+                  <div
+                    className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
+                      !isEven ? "lg:flex-row-reverse" : ""
+                    }`}
+                  >
                     {/* Content Side */}
                     <motion.div
                       initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.2 }}
-                      className={`space-y-8 ${!isEven ? 'lg:order-2' : ''}`}
+                      className={`space-y-8 ${!isEven ? "lg:order-2" : ""}`}
                     >
                       <div className="flex items-center gap-4">
                         <span className="text-6xl md:text-7xl font-bold text-primary/20">
@@ -152,11 +159,12 @@ const Services = () => {
                         ))}
                       </div>
 
-                      <Button 
-                        size="lg" 
-                        className="group rounded-full"
+                      <Button
+                        size="lg"
+                        className="group rounded-xl"
+                        onClick={() => navigate("/contact")}
                       >
-                        Learn More
+                        Lets Discuss
                         <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </motion.div>
@@ -167,11 +175,11 @@ const Services = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: 0.2 }}
-                      className={`relative ${!isEven ? 'lg:order-1' : ''}`}
+                      className={`relative ${!isEven ? "lg:order-1" : ""}`}
                     >
-                      <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                        <img 
-                          src={service.image} 
+                      <div className="relative aspect-[1/1] rounded-3xl overflow-hidden shadow-2xl">
+                        <img
+                          src={service.image}
                           alt={service.title}
                           className="w-full h-full object-cover"
                         />

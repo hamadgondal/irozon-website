@@ -116,7 +116,7 @@ const Projects = () => {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">FEATURED WORK</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">Featured Work</h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
               Beautiful designs. Eye-catching interactions. Memorable experiences. Development that
               delivers. Let the work do the talking.
