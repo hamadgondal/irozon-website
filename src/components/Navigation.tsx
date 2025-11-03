@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Home, Briefcase, Mail, Settings } from "lucide-react";
+import { Menu, Home, Briefcase, Mail, Settings, Newspaper } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -21,6 +21,7 @@ const Navigation: React.FC = () => {
     { label: "Home", href: "/", icon: Home },
     { label: "Projects", href: "/projects", icon: Briefcase },
     { label: "Services", href: "/services", icon: Settings },
+    { label: "News", href: "/news", icon: Newspaper },
     { label: "Contact", href: "/contact", icon: Mail },
   ];
 

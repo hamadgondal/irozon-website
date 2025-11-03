@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Projects from "./pages/Projects";
+import News from "./pages/News";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 import PageViewTracker from "@/components/PageViewTracker";
 import ReactGA from "react-ga4";
@@ -32,6 +34,8 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:slug" element={<BlogPost />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
