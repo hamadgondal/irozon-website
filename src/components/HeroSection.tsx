@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import SlidingButton from "./SlidingButton";
+// import { ArrowRight } from "lucide-react";
 
 interface SpringAnimation {
   element: HTMLElement;
@@ -317,10 +318,17 @@ const HeroSection: React.FC = () => {
             justifyContent: "center",
           }}
         >
-          <Button size="lg" className="group rounded-xl" onClick={() => navigate("/contact")}>
-            Lets talk
+          <SlidingButton title="Let's talk" />
+          {/* <motion.button
+            key="lets-talk-button"
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/contact")}
+            className={`px-16 py-3 rounded-xl text-sm font-medium transition-all bg-primary text-primary-foreground hover:bg-foreground hover:text-background flex items-center justify-center`}
+          >
+            Lets Talk
             <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-          </Button>
+          </motion.button> */}
+          <div className="hero-buttons mt-8 flex flex-col sm:flex-row gap-4 justify-center"></div>
         </div>
       </motion.div>
     </section>
