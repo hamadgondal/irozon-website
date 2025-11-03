@@ -10,6 +10,8 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import News from "./pages/News";
 import BlogPost from "./pages/BlogPost";
+import Auth from "./pages/Auth";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import PageViewTracker from "@/components/PageViewTracker";
 import ReactGA from "react-ga4";
@@ -36,6 +38,8 @@ const App = () => (
             <Route path="/projects" element={<Projects />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:slug" element={<BlogPost />} />
+            <Route path="/auth" element={<Auth />} />
+            <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
