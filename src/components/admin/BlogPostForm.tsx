@@ -10,7 +10,11 @@ import { z } from "zod";
 
 const blogPostSchema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters").max(200),
-  slug: z.string().min(3, "Slug must be at least 3 characters").max(200).regex(/^[a-z0-9-]+$/, "Slug must contain only lowercase letters, numbers, and hyphens"),
+  slug: z
+    .string()
+    .min(3, "Slug must be at least 3 characters")
+    .max(200)
+    .regex(/^[a-z0-9-]+$/, "Slug must contain only lowercase letters, numbers, and hyphens"),
   excerpt: z.string().min(10, "Excerpt must be at least 10 characters").max(500),
   content: z.string().min(50, "Content must be at least 50 characters").max(50000),
   author: z.string().min(2, "Author name must be at least 2 characters").max(100),
@@ -35,7 +39,7 @@ export const BlogPostForm = ({ post, onSuccess, onCancel }: BlogPostFormProps) =
     author: "",
     category: "",
     image_url: "",
-    published_date: new Date().toISOString().split('T')[0],
+    published_date: new Date().toISOString().split("T")[0],
   });
 
   useEffect(() => {
@@ -48,7 +52,9 @@ export const BlogPostForm = ({ post, onSuccess, onCancel }: BlogPostFormProps) =
         author: post.author || "",
         category: post.category || "",
         image_url: post.image_url || "",
-        published_date: post.published_date ? new Date(post.published_date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+        published_date: post.published_date
+          ? new Date(post.published_date).toISOString().split("T")[0]
+          : new Date().toISOString().split("T")[0],
       });
     }
   }, [post]);
@@ -97,9 +103,9 @@ export const BlogPostForm = ({ post, onSuccess, onCancel }: BlogPostFormProps) =
 
       if (uploadError) throw uploadError;
 
-      const { data: { publicUrl } } = supabase.storage
-        .from("project-images")
-        .getPublicUrl(filePath);
+      const {
+        data: { publicUrl },
+      } = supabase.storage.from("project-images").getPublicUrl(filePath);
 
       setFormData({ ...formData, image_url: publicUrl });
 
@@ -141,10 +147,7 @@ export const BlogPostForm = ({ post, onSuccess, onCancel }: BlogPostFormProps) =
       };
 
       if (post) {
-        const { error } = await supabase
-          .from("blog_posts")
-          .update(postData)
-          .eq("id", post.id);
+        const { error } = await supabase.from("blog_posts").update(postData).eq("id", post.id);
 
         if (error) throw error;
 
@@ -153,9 +156,7 @@ export const BlogPostForm = ({ post, onSuccess, onCancel }: BlogPostFormProps) =
           description: "Blog post updated successfully",
         });
       } else {
-        const { error } = await supabase
-          .from("blog_posts")
-          .insert([postData]);
+        const { error } = await supabase.from("blog_posts").insert([postData]);
 
         if (error) throw error;
 

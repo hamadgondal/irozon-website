@@ -1,249 +1,330 @@
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useIsMobile } from "@/hooks/use-mobile";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
-import hero4 from "@/assets/hero-4.jpg";
-import hero5 from "@/assets/hero-5.jpg";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
-const HeroSectionOld = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
+interface SpringAnimation {
+  element: HTMLElement;
+  x: number;
+  y: number;
+  targetX: number;
+  targetY: number;
+  velocityX: number;
+  velocityY: number;
+  stiffness: number;
+  damping: number;
+  mass: number;
+  isAnimating: boolean;
+}
 
-  // Responsive baseX values - much smaller on mobile
-  const getBaseX = (index: number) => {
-    if (isMobile) {
-      return [-80, -40, 0, 40, 80][index];
-    }
-    return [-400, -200, 0, 200, 400][index];
-  };
+const HeroSection: React.FC = () => {
+  const imagesRef = useRef<HTMLDivElement>(null);
+  const springsRef = useRef<SpringAnimation[]>([]);
+  const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+  const navigate = useNavigate();
 
-  const cards = [
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!imagesRef.current) return;
+
+    const floatingImages = imagesRef.current.querySelectorAll<HTMLElement>(".floating-image > div");
+
+    // Initialize spring animations
+    springsRef.current = Array.from(floatingImages).map((element) => ({
+      element,
+      x: 0,
+      y: 0,
+      targetX: 0,
+      targetY: 0,
+      velocityX: 0,
+      velocityY: 0,
+      stiffness: 0.05,
+      damping: 0.75,
+      mass: 1,
+      isAnimating: false,
+    }));
+
+    const updateSpring = (spring: SpringAnimation) => {
+      const forceX = (spring.targetX - spring.x) * spring.stiffness;
+      const forceY = (spring.targetY - spring.y) * spring.stiffness;
+
+      spring.velocityX += forceX / spring.mass;
+      spring.velocityY += forceY / spring.mass;
+      spring.velocityX *= spring.damping;
+      spring.velocityY *= spring.damping;
+
+      spring.x += spring.velocityX;
+      spring.y += spring.velocityY;
+
+      // Get the initial rotation from the element's data attribute
+      const rotation = spring.element.getAttribute("data-rotation") || "0";
+      spring.element.style.transform = `translate(${spring.x}px, ${spring.y}px) rotate(${rotation}deg)`;
+
+      const isMoving =
+        Math.abs(spring.velocityX) > 0.01 ||
+        Math.abs(spring.velocityY) > 0.01 ||
+        Math.abs(spring.targetX - spring.x) > 0.1 ||
+        Math.abs(spring.targetY - spring.y) > 0.1;
+
+      if (isMoving) {
+        requestAnimationFrame(() => updateSpring(spring));
+      } else {
+        spring.isAnimating = false;
+      }
+    };
+
+    const setTarget = (spring: SpringAnimation, x: number, y: number) => {
+      spring.targetX = x;
+      spring.targetY = y;
+
+      if (!spring.isAnimating) {
+        spring.isAnimating = true;
+        updateSpring(spring);
+      }
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      floatingImages.forEach((img, index) => {
+        const rect = img.getBoundingClientRect();
+        const imgCenterX = rect.left + rect.width / 2;
+        const imgCenterY = rect.top + rect.height / 2;
+
+        const deltaX = imgCenterX - mouseX;
+        const deltaY = imgCenterY - mouseY;
+        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+        const maxDistance = 300;
+
+        if (distance < maxDistance) {
+          const strength = (1 - distance / maxDistance) * 50;
+          const angle = Math.atan2(deltaY, deltaX);
+          const moveX = Math.cos(angle) * strength;
+          const moveY = Math.sin(angle) * strength;
+
+          setTarget(springsRef.current[index], moveX, moveY);
+        } else {
+          setTarget(springsRef.current[index], 0, 0);
+        }
+      });
+    };
+
+    const handleMouseLeave = () => {
+      springsRef.current.forEach((spring) => {
+        setTarget(spring, 0, 0);
+      });
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  const images = [
     {
-      image: hero1,
-      color: "bg-gradient-to-br from-blue-500 to-cyan-500",
-      delay: 0,
-      index: 0,
-      baseY: 0,
+      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Person-with-VR-Headset-m_f.png",
+      alt: "Person with VR Headset",
       rotation: -8,
-      service: "Mobile App Development",
-      description: "Native iOS & Android apps with flawless performance",
+      zIndex: 1,
+      top: 0,
     },
     {
-      image: hero2,
-      color: "bg-gradient-to-br from-purple-500 to-pink-500",
-      delay: 0.1,
-      index: 1,
-      baseY: 0,
-      rotation: -4,
-      service: "Web Development",
-      description: "Scalable web applications built for growth",
+      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Minimalist-Stone-Composition-m_f.png",
+      alt: "Minimalist Stone Composition",
+      rotation: 5,
+      zIndex: 2,
+      top: -30,
     },
     {
-      image: hero3,
-      color: "bg-gradient-to-br from-orange-500 to-red-500",
-      delay: 0.2,
-      index: 2,
-      baseY: 0,
-      rotation: 0,
-      service: "Brand Identity",
-      description: "Complete brand systems that leave a lasting impression",
+      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Whimsical-Character-in-a-Jar-m_f.png",
+      alt: "Whimsical Character in a Jar",
+      rotation: -3,
+      zIndex: 3,
+      top: 0,
     },
     {
-      image: hero4,
-      color: "bg-gradient-to-br from-pink-500 to-purple-500",
-      delay: 0.3,
-      index: 3,
-      baseY: 0,
-      rotation: 4,
-      service: "UI/UX Design",
-      description: "Intuitive interfaces with compelling user experiences",
+      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/02/Three-Scoops-of-Ice-Cream-on-Spoons.webp",
+      alt: "Three Scoops of Ice Cream",
+      rotation: 6,
+      zIndex: 4,
+      top: -30,
     },
     {
-      image: hero5,
-      color: "bg-gradient-to-br from-yellow-500 to-orange-500",
-      delay: 0.4,
-      index: 4,
-      baseY: 0,
-      rotation: 8,
-      service: "Graphic Design",
-      description: "Visual assets that capture attention and drive engagement",
+      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Green-Character-in-Yellow-Hoodie-m_f.png",
+      alt: "Green Character in Yellow Hoodie",
+      rotation: -5,
+      zIndex: 5,
+      top: 0,
     },
   ];
 
-  const MagneticCard = ({ card, index }: { card: (typeof cards)[0]; index: number }) => {
-    const baseX = getBaseX(card.index);
-    const cardX = useMotionValue(baseX);
-    const cardY = useMotionValue(card.baseY);
-    const cardRotate = useMotionValue(card.rotation);
-
-    const springX = useSpring(cardX, { stiffness: 300, damping: 15 });
-    const springY = useSpring(cardY, { stiffness: 300, damping: 15 });
-    const springRotate = useSpring(cardRotate, { stiffness: 300, damping: 15 });
-
-    useEffect(() => {
-      const handleMouseMove = (e: MouseEvent) => {
-        if (!containerRef.current) return;
-
-        const rect = containerRef.current.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-
-        const mouseX = e.clientX - centerX;
-        const mouseY = e.clientY - centerY;
-
-        const currentBaseX = getBaseX(card.index);
-        const cardCenterX = currentBaseX;
-        const cardCenterY = card.baseY;
-
-        const deltaX = mouseX - cardCenterX;
-        const deltaY = mouseY - cardCenterY;
-        const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-
-        // Smaller magnetic radius and pull force on mobile
-        const magneticRadius = isMobile ? 150 : 300;
-        const pullMultiplier = isMobile ? 30 : 60;
-
-        if (distance < magneticRadius) {
-          const force = Math.pow((magneticRadius - distance) / magneticRadius, 2);
-          const angle = Math.atan2(deltaY, deltaX);
-
-          const pullX = Math.cos(angle) * force * pullMultiplier;
-          const pullY = Math.sin(angle) * force * pullMultiplier;
-          const rotationOffset = pullX * 0.06;
-
-          cardX.set(currentBaseX + pullX);
-          cardY.set(card.baseY + pullY);
-          cardRotate.set(card.rotation + rotationOffset);
-        } else {
-          cardX.set(currentBaseX);
-          cardY.set(card.baseY);
-          cardRotate.set(card.rotation);
-        }
-      };
-
-      const handleMouseLeave = () => {
-        const currentBaseX = getBaseX(card.index);
-        cardX.set(currentBaseX);
-        cardY.set(card.baseY);
-        cardRotate.set(card.rotation);
-      };
-
-      const container = containerRef.current;
-      if (container) {
-        container.addEventListener("mousemove", handleMouseMove);
-        container.addEventListener("mouseleave", handleMouseLeave);
-
-        return () => {
-          container.removeEventListener("mousemove", handleMouseMove);
-          container.removeEventListener("mouseleave", handleMouseLeave);
-        };
-      }
-    }, [card.index, card.baseY, card.rotation, cardX, cardY, cardRotate, isMobile]);
-
-    return (
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 50 }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            style={{
-              x: springX,
-              y: springY,
-              rotate: springRotate,
-              transformStyle: "preserve-3d",
-              zIndex: index === 2 ? 30 : 20 - Math.abs(2 - index) * 3,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.3 + card.delay,
-              type: "spring",
-              stiffness: 120,
-              damping: 15,
-            }}
-            className={`absolute w-[200px] h-[260px] md:w-[280px] md:h-[360px] rounded-[32px] ${card.color} shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] overflow-hidden cursor-pointer`}
-          >
-            <img src={card.image} alt={card.service} className="w-full h-full object-cover" />
-          </motion.div>
-        </TooltipTrigger>
-        <TooltipContent className="max-w-xs">
-          <p className="font-semibold text-sm mb-1">{card.service}</p>
-          <p className="text-xs text-muted-foreground">{card.description}</p>
-        </TooltipContent>
-      </Tooltip>
-    );
-  };
-
   return (
-    <TooltipProvider>
-      <section className="min-h-screen flex items-center justify-center px-4 md:px-6 py-20 md:py-32 bg-background overflow-hidden">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-7xl lg:text-8xl font-bold leading-tight mb-8 md:mb-12 text-foreground px-2"
-          >
-            Digital Experiences That Define Your Brand.
-          </motion.h1>
+    <section
+      style={{
+        position: "relative",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "60px 20px",
+        overflow: "hidden",
+        gap: isMobile ? "6rem" : "4rem",
+        background: "#f5f5f5",
+        color: "#fff",
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{
+          position: "relative",
+          zIndex: 2,
+          textAlign: "center",
+          maxWidth: "900px",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "clamp(2.5rem, 8vw, 4rem)",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            marginBottom: "30px",
+            letterSpacing: "-0.02em",
+            color: "#262626",
+          }}
+        >
+          Digital Experiences That Define Your Brand
+        </h1>
+      </motion.div>
 
-          {/* Overlapping Cards with Magnetic Effect */}
-          <div
-            ref={containerRef}
-            className="flex items-center justify-center mb-8 md:mb-16 h-[280px] md:h-[440px] relative overflow-hidden"
-          >
-            {cards.map((card, index) => (
-              <MagneticCard key={index} card={card} index={index} />
-            ))}
-          </div>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="text-base md:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-2"
-          >
-            You have a vision. We have the technical and creative expertise to digitize it. From
-            Pixel to Platform, we build scalable web and mobile apps, forge powerful brand
-            identities, and deliver graphic design that cuts through the noise. Ready to make your
-            vision a digital reality?
-          </motion.p>
-
+      <div
+        ref={imagesRef}
+        style={{
+          position: "relative",
+          display: "flex",
+          gap: 0,
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
+          maxWidth: "1200px",
+          zIndex: 1,
+          margin: "0 -20px",
+        }}
+      >
+        {images.map((image, index) => (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            key={index}
+            className="floating-image"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: index * 0.1 }}
+            style={{
+              position: "relative",
+              willChange: "transform",
+              margin: "0 -30px",
+              width: isMobile ? "120px" : "240px",
+              height: isMobile ? "120px" : "240px",
+              zIndex: image.zIndex,
+              top: image.top,
+            }}
           >
-            <Link to="/contact">
-              <Button
-                size="lg"
-                className="px-8 text-base font-medium"
-              >
-                Contact us
-              </Button>
-            </Link>
-            <Link to="/projects">
-              <Button
-                size="lg"
-                className="px-8 text-base font-medium"
-              >
-                Discover Our Work
-              </Button>
-            </Link>
+            <motion.div
+              data-rotation={image.rotation}
+              initial={{ rotate: 0, scale: 0.8 }}
+              animate={{ rotate: image.rotation, scale: 1 }}
+              transition={{
+                delay: index * 0.1,
+                rotate: {
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 8,
+                  mass: 1,
+                },
+                scale: {
+                  type: "spring",
+                  stiffness: 150,
+                  damping: 10,
+                  mass: 0.8,
+                },
+              }}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "24px",
+                  boxShadow:
+                    "inset -1px 20px 20px 14px rgb(0 0 0 / 18%), 0 10px 20px -5px rgba(0, 0, 0, 0.3)",
+                }}
+              />
+            </motion.div>
           </motion.div>
+        ))}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+        style={{
+          position: "relative",
+          zIndex: 2,
+          textAlign: "center",
+          maxWidth: "900px",
+          marginTop: "2rem",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "clamp(1rem, 2vw, 1.25rem)",
+            lineHeight: 1.6,
+            color: "#444343",
+            maxWidth: "900px",
+            margin: "0 auto",
+          }}
+        >
+          You have a vision. We have the technical and creative expertise to digitize it. From Pixel
+          to Platform, we build scalable web and mobile apps, forge powerful brand identities, and
+          deliver graphic design that cuts through the noise. Ready to make your vision a digital
+          reality?
+        </p>
+        <div
+          style={{
+            marginTop: "2rem",
+            display: "flex",
+            flexDirection: "row",
+            gap: "1rem",
+            justifyContent: "center",
+          }}
+        >
+          <Button size="lg" className="group rounded-xl" onClick={() => navigate("/contact")}>
+            Lets talk
+            <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </Button>
         </div>
-      </section>
-    </TooltipProvider>
+      </motion.div>
+    </section>
   );
 };
 
-export default HeroSectionOld;
+export default HeroSection;

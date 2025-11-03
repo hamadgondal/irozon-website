@@ -68,10 +68,7 @@ const Admin = () => {
 
   const deleteMutation = useMutation({
     mutationFn: async (postId: string) => {
-      const { error } = await supabase
-        .from("blog_posts")
-        .delete()
-        .eq("id", postId);
+      const { error } = await supabase.from("blog_posts").delete().eq("id", postId);
 
       if (error) throw error;
     },
@@ -83,7 +80,7 @@ const Admin = () => {
       });
       setDeletePostId(null);
     },
-    onError: (error: any) => {
+    onError: (error: Error) => {
       toast({
         title: "Error",
         description: error.message || "Failed to delete blog post",
@@ -172,15 +169,12 @@ const Admin = () => {
                     <div>
                       <h3 className="text-xl font-semibold mb-1">{post.title}</h3>
                       <p className="text-sm text-muted-foreground">
-                        {post.category} • {post.author} • {new Date(post.published_date).toLocaleDateString()}
+                        {post.category} • {post.author} •{" "}
+                        {new Date(post.published_date).toLocaleDateString()}
                       </p>
                     </div>
                     <div className="flex gap-2">
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        onClick={() => setEditingPost(post)}
-                      >
+                      <Button variant="outline" size="icon" onClick={() => setEditingPost(post)}>
                         <Edit className="h-4 w-4" />
                       </Button>
                       <Button

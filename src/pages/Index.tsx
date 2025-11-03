@@ -1,7 +1,7 @@
 import ClientCarousel from "@/components/ClientCarousel";
 import Services from "@/components/Services";
 import PortfolioGrid from "@/components/PortfolioGrid";
-import HeroSection from "@/components/HeroSection/HeroSection";
+import HeroSection from "@/components/HeroSection";
 
 const Index = () => {
   return (
