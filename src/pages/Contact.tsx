@@ -129,7 +129,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="mt-2"
+                    className="mt-2 bg-white text-gray-900 placeholder-gray-400"
                     placeholder="Your name"
                   />
                 </div>
@@ -143,7 +143,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="mt-2"
+                    className="mt-2 bg-white text-gray-900 placeholder-gray-400"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -156,7 +156,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="mt-2"
+                    className="mt-2 bg-white text-gray-900 placeholder-gray-400"
                     placeholder="How can we help?"
                   />
                 </div>
@@ -169,7 +169,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="mt-2 min-h-[150px]"
+                    className="mt-2 min-h-[150px] bg-white text-gray-900 placeholder-gray-400"
                     placeholder="Tell us more about your project..."
                   />
                 </div>
