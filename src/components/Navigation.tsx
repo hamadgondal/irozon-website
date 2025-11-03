@@ -49,7 +49,7 @@ const Navigation: React.FC = () => {
         >
           <Link to="/">
             {/* <span className="text-accent">irozon.</span> */}
-            <IrozonLogo className="w-32" />
+            <IrozonLogo className="w-24" />
           </Link>
         </motion.div>
 
