@@ -35,8 +35,9 @@ const Admin = () => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
   const [showForm, setShowForm] = useState(false);
-  const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
+  const [editingPost, setEditingPost] = useState<any | null>(null);
   const [deletePostId, setDeletePostId] = useState<string | null>(null);
+  const [loadingPost, setLoadingPost] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -88,6 +89,28 @@ const Admin = () => {
       });
     },
   });
+
+  const handleEditPost = async (postId: string) => {
+    setLoadingPost(true);
+    try {
+      const { data, error } = await supabase
+        .from("blog_posts")
+        .select("*")
+        .eq("id", postId)
+        .single();
+
+      if (error) throw error;
+      setEditingPost(data);
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to load blog post",
+        variant: "destructive",
+      });
+    } finally {
+      setLoadingPost(false);
+    }
+  };
 
   const handleSignOut = async () => {
     await signOut();
@@ -174,7 +197,12 @@ const Admin = () => {
                       </p>
                     </div>
                     <div className="flex gap-2">
-                      <Button variant="outline" size="icon" onClick={() => setEditingPost(post)}>
+                      <Button 
+                        variant="outline" 
+                        size="icon" 
+                        onClick={() => handleEditPost(post.id)}
+                        disabled={loadingPost}
+                      >
                         <Edit className="h-4 w-4" />
                       </Button>
                       <Button
