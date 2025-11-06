@@ -6,6 +6,7 @@ import { Calendar, User, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
+import { Helmet } from "react-helmet-async";
 
 interface BlogPost {
   id: string;
@@ -34,6 +35,15 @@ const News = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>News & Insights | Actionable Tips for Web, Apps, and Digital Growth</title>
+        <meta
+          name="description"
+          content="Ready to cut through the tech noise? Stay updated with irozon's latest articles, actionable tips, and real-world stories on web development, design, and digital growth."
+        />
+        {/* Optional: Add Open Graph tags tailored for reading content */}
+        <meta property="og:type" content="article" />
+      </Helmet>
       {/* Hero Section */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">

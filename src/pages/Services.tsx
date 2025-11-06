@@ -3,12 +3,21 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { SERVICES_DETAIL } from "@/constants/services";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>What We Do Best | irozon - Web Development, Apps, and Design</title>
+        <meta
+          name="description"
+          content="Explore irozon's core services: Custom Web Development, Mobile App Engineering, Brand Identity, and secure IT Support. Let's build your success."
+        />
+        {/* Add canonical, Open Graph, etc., here */}
+      </Helmet>
       <main className="pt-24">
         {/* Hero Section */}
         <div className="px-6 py-8 max-w-7xl mx-auto">

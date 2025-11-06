@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { Helmet } from "react-helmet-async";
 
 const WEB3FORMS_ACCESS_KEY = "6c821c85-39d2-41d6-bbad-22e2944ab1b8";
 
@@ -96,6 +95,13 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Get In Touch with irozon | Start Your Project Today</title>
+        <meta
+          name="description"
+          content="Ready to build something great? Contact irozon today for a free quote on web development, mobile apps, or brand identity. We always respond quickly!"
+        />
+      </Helmet>
       <main className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div

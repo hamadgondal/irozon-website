@@ -16,6 +16,7 @@ import NotFound from "./pages/NotFound";
 import PageViewTracker from "@/components/PageViewTracker";
 import ReactGA from "react-ga4";
 import Layout from "./components/Layout";
+import { HelmetProvider } from "react-helmet-async";
 
 const GA4_MEASUREMENT_ID = "G-P5DBM073EK";
 // Initialize GA4 before the App component renders
@@ -24,28 +25,30 @@ ReactGA.initialize(GA4_MEASUREMENT_ID);
 const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <PageViewTracker />
-        <ScrollToTop />
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/news/:slug" element={<BlogPost />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/admin" element={<Admin />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </TooltipProvider>
+    <HelmetProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <PageViewTracker />
+          <ScrollToTop />
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/news" element={<News />} />
+              <Route path="/news/:slug" element={<BlogPost />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/admin" element={<Admin />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </TooltipProvider>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 

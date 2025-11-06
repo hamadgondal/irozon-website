@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectDetailsDialog, { Project } from "@/components/ProjectDetailsDialog";
 import { PROJECTS } from "@/constants/projects";
+import { Helmet } from "react-helmet-async";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All Categories");
@@ -22,6 +23,15 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Portfolio | Featured Web & Mobile App Work by irozon</title>
+        <meta
+          name="description"
+          content="Explore irozon's featured work. See case studies and success stories for beautiful designs, eye-catching interactions, and development that delivers real business results."
+        />
+        {/* Optional: Add canonical link if your site uses one */}
+        <link rel="canonical" href="https://irozon.se/projects" />
+      </Helmet>
       {/* Featured Work Section */}
       <section className="pt-32 py-20 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
