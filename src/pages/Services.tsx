@@ -18,9 +18,9 @@ const Services = () => {
         />
         {/* Add canonical, Open Graph, etc., here */}
       </Helmet>
-      <main className="pt-24">
+      <main className="pt-16">
         {/* Hero Section */}
-        <div className="px-6 py-8 max-w-7xl mx-auto">
+        <div className="px-6 py-2 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

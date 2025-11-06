@@ -33,7 +33,7 @@ const Projects = () => {
         <link rel="canonical" href="https://irozon.se/projects" />
       </Helmet>
       {/* Featured Work Section */}
-      <section className="pt-32 py-20 px-6 bg-background">
+      <section className="pt-16 py-20 px-6 bg-background">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

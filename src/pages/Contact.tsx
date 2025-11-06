@@ -102,7 +102,7 @@ const Contact = () => {
           content="Ready to build something great? Contact irozon today for a free quote on web development, mobile apps, or brand identity. We always respond quickly!"
         />
       </Helmet>
-      <main className="pt-32 pb-20 px-6">
+      <main className="pt-16 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
