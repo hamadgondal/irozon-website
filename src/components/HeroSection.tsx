@@ -185,7 +185,7 @@ const HeroSection: React.FC = () => {
         justifyContent: "center",
         padding: "60px 20px",
         overflow: "hidden",
-        gap: isMobile ? "6rem" : "4rem",
+        gap: isMobile ? "3rem" : "8rem",
         background: "#f5f5f5",
         color: "#fff",
       }}
@@ -311,7 +311,7 @@ const HeroSection: React.FC = () => {
         </p>
         <div
           style={{
-            marginTop: "2rem",
+            marginTop: "4rem",
             display: "flex",
             flexDirection: "row",
             gap: "1rem",
