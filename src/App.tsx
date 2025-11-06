@@ -17,14 +17,26 @@ import PageViewTracker from "@/components/PageViewTracker";
 import ReactGA from "react-ga4";
 import Layout from "./components/Layout";
 import { HelmetProvider } from "react-helmet-async";
+import { FC } from "react";
 
+// 1. Define a TypeScript interface for the React component that includes the React Snap static property
+interface AppWithSnapPrecache extends FC {
+  __react_snap_precache?: string[];
+}
+
+// Re-enabling GA initialization block
 const GA4_MEASUREMENT_ID = "G-P5DBM073EK";
-// Initialize GA4 before the App component renders
 ReactGA.initialize(GA4_MEASUREMENT_ID);
 
+// Define routes that React Snap should explicitly pre-render
+const routesToPrecache = ["/", "/contact", "/services", "/projects", "/news", "/auth"];
+
+// 2. Define the App component using the new, correctly typed interface
 const queryClient = new QueryClient();
-const App = () => (
+
+const App: AppWithSnapPrecache = () => (
   <QueryClientProvider client={queryClient}>
+    {/* HelmetProvider must wrap the entire application to manage metadata */}
     <HelmetProvider>
       <TooltipProvider>
         <Toaster />
@@ -51,5 +63,8 @@ const App = () => (
     </HelmetProvider>
   </QueryClientProvider>
 );
+
+// 3. Attach the list of routes to the component without 'as any'
+App.__react_snap_precache = routesToPrecache;
 
 export default App;
