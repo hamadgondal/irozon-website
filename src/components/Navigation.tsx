@@ -108,7 +108,7 @@ const Navigation: React.FC = () => {
                         : "text-foreground hover:bg-muted/50"
                     }`}
                   >
-                    <Icon className="h-5 w-5" />
+                    {/* <Icon className="h-5 w-5" /> */}
                     {item.label}
                   </Link>
                 );

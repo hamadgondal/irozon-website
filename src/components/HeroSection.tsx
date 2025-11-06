@@ -304,10 +304,10 @@ const HeroSection: React.FC = () => {
             margin: "0 auto",
           }}
         >
-          You have a vision. We have the technical and creative expertise to digitize it. From Pixel
-          to Platform, we build scalable web and mobile apps, forge powerful brand identities, and
-          deliver graphic design that cuts through the noise. Ready to make your vision a digital
-          reality?
+          You have a vision. We have the creative and technical expertise to bring it to life. From
+          the smallest detail ("Pixel") to the largest system ("Platform"), we build scalable web
+          and mobile apps, create powerful brand identities, and deliver stunning graphic design
+          that truly cuts through the noise.
         </p>
         <div
           style={{
@@ -318,7 +318,7 @@ const HeroSection: React.FC = () => {
             justifyContent: "center",
           }}
         >
-          <SlidingButton title="Let's talk" />
+          <SlidingButton title={`Let's Build It`} />
           {/* <motion.button
             key="lets-talk-button"
             whileTap={{ scale: 0.95 }}

@@ -47,7 +47,9 @@ const News = () => {
               News & <span className="text-primary">Insights</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Stay updated with the latest trends, tips, and stories from our team
+              Ready to cut through the tech noise? Stay updated with our latest articles, actionable
+              tips, and real-world stories on web development, design, and digital growth. Knowledge
+              that helps your business grow.
             </p>
           </motion.div>
 

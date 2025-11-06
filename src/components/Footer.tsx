@@ -4,7 +4,7 @@ import React from "react";
 
 const Footer = () => {
   const marqueeText =
-    "Mobile apps • Web engineering • Brand identity • UI/UX design • Build to scale • Code & color fusion";
+    "Mobile apps • iOS & Android apps • Custom websites • Web engineering • Brand identity • UI/UX design • Shopify & WooCommerce • Build to scale • Code & color fusion";
   const textParts = marqueeText.split(" • ");
 
   return (

@@ -108,8 +108,9 @@ const Contact = () => {
               Get In Touch
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? We'd love to hear from you. Send us a message and we'll
-              respond as soon as possible.
+              Let's turn your vision into a digital reality. Whether you have a specific project
+              ready to go or just want to explore possibilities, we'd love to chat. Send us a quick
+              message—we always respond quickly!
             </p>
           </motion.div>
 

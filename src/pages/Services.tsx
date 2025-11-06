@@ -1,73 +1,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Smartphone, Globe, Palette, Sparkles } from "lucide-react";
-import serviceMobile from "@/assets/service-mobile.jpg";
-import serviceWeb from "@/assets/service-web.jpg";
-import serviceBrand from "@/assets/service-brand.jpg";
-import serviceDesign from "@/assets/service-design.jpg";
+import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { SERVICES_DETAIL } from "@/constants/services";
 
 const Services = () => {
   const navigate = useNavigate();
-
-  const services = [
-    {
-      number: "01",
-      title: "Mobile App Development",
-      icon: Smartphone,
-      description:
-        "Building high-performance, native (iOS & Android) and cross-platform applications. We ensure speed, stability, and a flawless user experience on every device.",
-      details: [
-        "Native iOS & Android Development",
-        "Cross-platform Solutions",
-        "App Store Optimization",
-        "Performance & Security",
-      ],
-      image: serviceMobile,
-    },
-    {
-      number: "02",
-      title: "Web & App Development",
-      icon: Globe,
-      description:
-        "Engineering scalable web applications and custom CMS-driven websites. We deliver robust, secure, and future-proof digital platforms designed for growth.",
-      details: [
-        "Custom Web Applications",
-        "E-commerce Solutions",
-        "CMS Development",
-        "API Integration",
-      ],
-      image: serviceWeb,
-    },
-    {
-      number: "03",
-      title: "Brand Identity & Strategy",
-      icon: Palette,
-      description:
-        "Designing complete brand systems—from logo creation and voice development to comprehensive style guides that ensure a unified, memorable presence.",
-      details: [
-        "Logo & Visual Identity",
-        "Brand Guidelines",
-        "Marketing Collateral",
-        "Brand Strategy",
-      ],
-      image: serviceBrand,
-    },
-    {
-      number: "04",
-      title: "UI/UX & Graphic Design",
-      icon: Sparkles,
-      description:
-        "Creating intuitive User Interfaces (UI) and compelling User Experiences (UX). This includes all necessary graphic assets, marketing materials, and digital visuals.",
-      details: [
-        "User Interface Design",
-        "User Experience Research",
-        "Prototyping & Testing",
-        "Design Systems",
-      ],
-      image: serviceDesign,
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -82,15 +20,15 @@ const Services = () => {
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">What We Do Best</h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Comprehensive creative and technical solutions tailored to bring your vision to life
-              with cutting-edge technology and innovative design.
+              We offer complete digital solutions—from brand identity and professional UI/UX design
+              to secure cloud management—making your path to growth clear and efficient.
             </p>
           </motion.div>
         </div>
 
         {/* Services List */}
         <div className="space-y-0">
-          {services.map((service, index) => {
+          {SERVICES_DETAIL.map((service, index) => {
             const Icon = service.icon;
             const isEven = index % 2 === 0;
 
