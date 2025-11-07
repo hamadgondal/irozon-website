@@ -185,7 +185,7 @@ const HeroSection: React.FC = () => {
         justifyContent: "center",
         padding: "60px 20px",
         overflow: "hidden",
-        gap: isMobile ? "3rem" : "8rem",
+        gap: isMobile ? "2rem" : "8rem",
         background: "#f5f5f5",
         color: "#fff",
       }}

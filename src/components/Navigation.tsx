@@ -38,9 +38,13 @@ const Navigation: React.FC = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-      className={`fixed top-0 left-0 right-0 z-50 h-16 
-        bg-[hsl(var(--header-footer))]/95 backdrop-blur-lg transition-all duration-300 ease-in-out
-        ${isScrolled ? "border-b border-border shadow-md" : ""}`}
+      className={`fixed top-0 left-0 right-0 z-50 h-16
+    backdrop-blur-lg transition-all duration-300 ease-in-out
+    ${
+      isScrolled
+        ? "bg-[hsl(var(--header-footer))]/60 border-b border-border shadow-md"
+        : "bg-[hsl(var(--header-footer))]/0"
+    }`}
     >
       <div className="container mx-auto px-6 h-full flex items-center justify-between">
         {/* Logo/Brand */}
@@ -50,7 +54,7 @@ const Navigation: React.FC = () => {
         >
           <Link to="/" aria-label="Irozon Home">
             {/* <span className="text-accent">irozon.</span> */}
-            <IrozonLogo className="w-24" />
+            <IrozonLogo className="w-32" />
           </Link>
         </motion.div>
 
@@ -110,7 +114,7 @@ const Navigation: React.FC = () => {
                     {isActive && (
                       <motion.div
                         layoutId="activePillMobile"
-                        className="absolute bottom-0 left-0 h-[3px] w-full bg-primary rounded-full"
+                        // className="absolute bottom-0 left-0 h-[3px] w-full bg-primary rounded-full"
                         transition={{ type: "spring", stiffness: 500, damping: 30 }}
                       />
                     )}
