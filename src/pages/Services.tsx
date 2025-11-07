@@ -120,7 +120,10 @@ const Services = () => {
                       <div className="relative aspect-[1/1] rounded-3xl overflow-hidden shadow-2xl">
                         <img
                           src={service.image}
-                          alt={service.title}
+                          alt={`${service.title} service illustration`}
+                          loading="lazy"
+                          width="600"
+                          height="600"
                           className="w-full h-full object-cover"
                         />
                       </div>

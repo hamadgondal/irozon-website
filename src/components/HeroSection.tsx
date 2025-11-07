@@ -269,6 +269,9 @@ const HeroSection: React.FC = () => {
               <img
                 src={image.src}
                 alt={image.alt}
+                loading="lazy"
+                width={isMobile ? 120 : 240}
+                height={isMobile ? 120 : 240}
                 style={{
                   width: "100%",
                   height: "100%",

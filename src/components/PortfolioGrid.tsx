@@ -104,6 +104,7 @@ const PortfolioGrid = () => {
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <motion.h2
+          id="portfolio-heading"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -161,7 +162,10 @@ const PortfolioGrid = () => {
                 <div className="relative overflow-hidden rounded-3xl bg-card shadow-lg aspect-square">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} project for ${project.client}`}
+                    loading="lazy"
+                    width="400"
+                    height="400"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">

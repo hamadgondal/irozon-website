@@ -16,7 +16,7 @@ const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
+          <h2 id="services-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
             What We Offer
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
@@ -37,36 +37,27 @@ const Services = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative"
               >
-                <Link to="/services">
-                  <a className="block h-full cursor-pointer">
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl transition-opacity opacity-0 group-hover:opacity-100`}
-                    />
-                    <div className="relative p-8 lg:p-10 rounded-3xl bg-card border border-border hover:border-primary/20 transition-all duration-300 h-full">
-                      <div className="flex flex-col h-full">
-                        {/* <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      transition={{ duration: 0.3 }}
-                      className={`w-16 h-16 rounded-2xl ${service.iconBg} flex items-center justify-center mb-6 shadow-lg`}
-                    >
-                      <Icon className="w-8 h-8 text-white" />
-                    </motion.div> */}
-                        <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
-                          {service.title}
-                        </h3>
-                        <p className="text-muted-foreground leading-relaxed text-base lg:text-lg flex-grow">
-                          {service.description}
-                        </p>
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: "60px" }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-                          className="h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full mt-6"
-                        />
-                      </div>
+                <Link to="/services" className="block h-full cursor-pointer">
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-3xl transition-opacity opacity-0 group-hover:opacity-100`}
+                  />
+                  <div className="relative p-8 lg:p-10 rounded-3xl bg-card border border-border hover:border-primary/20 transition-all duration-300 h-full">
+                    <div className="flex flex-col h-full">
+                      <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed text-base lg:text-lg flex-grow">
+                        {service.description}
+                      </p>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "60px" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                        className="h-1 bg-gradient-to-r from-primary to-primary/50 rounded-full mt-6"
+                      />
                     </div>
-                  </a>
+                  </div>
                 </Link>
               </motion.div>
             );

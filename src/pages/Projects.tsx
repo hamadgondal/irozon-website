@@ -94,17 +94,20 @@ const Projects = () => {
                   className="group cursor-pointer"
                   onClick={() => handleProjectClick(project)}
                 >
-                  <div className="relative overflow-hidden rounded-3xl bg-card shadow-lg aspect-square">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                      <h3 className="text-2xl font-bold mb-1 text-white">{project.title}</h3>
-                      <p className="text-sm text-white/80">{project.category}</p>
-                    </div>
+                <div className="relative overflow-hidden rounded-3xl bg-card shadow-lg aspect-square">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} - ${project.category} project for ${project.client}`}
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
+                    <h3 className="text-2xl font-bold mb-1 text-white">{project.title}</h3>
+                    <p className="text-sm text-white/80">{project.category}</p>
                   </div>
+                </div>
                 </motion.div>
               ))}
             </motion.div>

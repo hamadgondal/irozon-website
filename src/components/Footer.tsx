@@ -38,6 +38,7 @@ const Footer = () => {
                 href="https://www.facebook.com/irozon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit irozon on Facebook"
                 className="group block"
                 whileHover={{ scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -52,6 +53,7 @@ const Footer = () => {
                 href="https://www.instagram.com/irozonllc/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit irozon on Instagram"
                 className="group block"
                 whileHover={{ scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -66,6 +68,7 @@ const Footer = () => {
                 href="https://www.linkedin.com/company/irozon"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit irozon on LinkedIn"
                 className="group block"
                 whileHover={{ scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -80,6 +83,7 @@ const Footer = () => {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Visit irozon on Twitter"
                 className="group block"
                 whileHover={{ scale: 1.15 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}

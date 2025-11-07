@@ -63,6 +63,7 @@ const Navigation: React.FC = () => {
               <Link
                 key={item.label}
                 to={item.href}
+                aria-current={isActive ? "page" : undefined}
                 className="h-full flex items-center relative group" // h-full ensures centering
               >
                 <motion.span

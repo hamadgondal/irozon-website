@@ -25,7 +25,7 @@ const ClientCarousel = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+          <h2 id="clients-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             A Portfolio Defined by Quality, Not Scale
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -70,7 +70,10 @@ const ClientCarousel = () => {
                     {client.logo ? (
                       <img
                         src={client.logo}
-                        alt={client.name}
+                        alt={`${client.name} logo`}
+                        loading="lazy"
+                        width="200"
+                        height="80"
                         className="max-w-full max-h-[80px] object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
                       />
                     ) : (
