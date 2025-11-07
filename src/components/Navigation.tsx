@@ -103,14 +103,19 @@ const Navigation: React.FC = () => {
                     key={item.label}
                     to={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-4 p-3 rounded-lg text-lg font-medium transition-all ${
-                      isActive
-                        ? "bg-primary text-primary-foreground font-semibold"
-                        : "text-foreground hover:bg-muted/50"
-                    }`}
+                    className="relative flex items-center gap-4 p-3 rounded-lg text-lg font-medium transition-all text-foreground hover:bg-muted/50"
                   >
                     {/* <Icon className="h-5 w-5" /> */}
-                    {item.label}
+                    <span className={isActive ? "font-bold text-primary" : ""}>
+                      {item.label}
+                    </span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activePillMobile"
+                        className="absolute bottom-0 left-0 h-[3px] w-full bg-primary rounded-full"
+                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                      />
+                    )}
                   </Link>
                 );
               })}
