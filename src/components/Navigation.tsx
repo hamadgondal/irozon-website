@@ -48,7 +48,7 @@ const Navigation: React.FC = () => {
           whileHover={{ scale: 1.05 }}
           className="text-2xl font-extrabold tracking-tight text-primary"
         >
-          <Link to="/">
+          <Link to="/" aria-label="Irozon Home">
             {/* <span className="text-accent">irozon.</span> */}
             <IrozonLogo className="w-24" />
           </Link>
@@ -89,7 +89,7 @@ const Navigation: React.FC = () => {
         {/* Mobile Menu */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" aria-label="Open mobile menu">
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
@@ -106,9 +106,7 @@ const Navigation: React.FC = () => {
                     className="relative flex items-center gap-4 p-3 rounded-lg text-lg font-medium transition-all text-foreground hover:bg-muted/50"
                   >
                     {/* <Icon className="h-5 w-5" /> */}
-                    <span className={isActive ? "font-bold text-primary" : ""}>
-                      {item.label}
-                    </span>
+                    <span className={isActive ? "font-bold text-primary" : ""}>{item.label}</span>
                     {isActive && (
                       <motion.div
                         layoutId="activePillMobile"
