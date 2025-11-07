@@ -94,7 +94,7 @@ const Services = () => {
                             transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
                             className="flex items-center gap-3 text-foreground"
                           >
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                             <span className="text-base">{detail}</span>
                           </motion.div>
                         ))}
