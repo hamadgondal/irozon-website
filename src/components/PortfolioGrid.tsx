@@ -2,10 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectDetailsDialog, { Project } from "./ProjectDetailsDialog";
 import { PROJECTS } from "@/constants/projects";
-import SlidingButton from "./SlidingButton";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
-import { ArrowRight } from "lucide-react";
 
 const PortfolioGrid = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
