@@ -180,7 +180,6 @@ const HeroSection: React.FC = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
         padding: "60px 20px",
         overflow: "hidden",
         gap: isMobile ? "2rem" : "8rem",
