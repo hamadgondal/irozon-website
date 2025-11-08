@@ -82,7 +82,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+46 76 584 1995",
       href: "tel:+15551234567",
     },
     {

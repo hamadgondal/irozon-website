@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 export interface Project {
   id: number;
   title: string;
+  isFeatured?: boolean;
   category: string;
   image: string;
   images: string[];

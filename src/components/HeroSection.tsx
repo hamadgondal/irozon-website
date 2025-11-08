@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 // import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 import SlidingButton from "./SlidingButton";
 // import { ArrowRight } from "lucide-react";
 
@@ -23,7 +22,6 @@ const HeroSection: React.FC = () => {
   const imagesRef = useRef<HTMLDivElement>(null);
   const springsRef = useRef<SpringAnimation[]>([]);
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -321,7 +319,7 @@ const HeroSection: React.FC = () => {
             justifyContent: "center",
           }}
         >
-          <SlidingButton title={`Let's Build It`} />
+          <SlidingButton title={`Let's Build It`} navigateTo="/contact" />
           {/* <motion.button
             key="lets-talk-button"
             whileTap={{ scale: 0.95 }}

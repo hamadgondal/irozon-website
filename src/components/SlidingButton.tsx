@@ -33,9 +33,10 @@ const ThreeDots: React.FC<{ className?: string; fill?: string }> = ({
 
 type SlidingButtonProps = {
   title: string;
+  navigateTo: string;
 };
 
-const SlidingButton: React.FC<SlidingButtonProps> = ({ title }) => {
+const SlidingButton: React.FC<SlidingButtonProps> = ({ title, navigateTo = "/" }) => {
   const slideDistance = "4.1rem";
   const navigate = useNavigate();
 
@@ -45,7 +46,7 @@ const SlidingButton: React.FC<SlidingButtonProps> = ({ title }) => {
       whileHover="hover"
       initial="rest"
       animate="rest"
-      onClick={() => navigate("/contact")}
+      onClick={() => navigate(navigateTo)}
       whileTap={{ scale: 0.97 }}
     >
       {/* Amber base layer (rest) */}

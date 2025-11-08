@@ -105,7 +105,7 @@ const Services = () => {
                         className="group rounded-xl"
                         onClick={() => navigate("/contact")}
                       >
-                        Lets Discuss
+                        Let's Discuss
                         <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </motion.div>
