@@ -7,7 +7,7 @@ import project6 from "@/assets/project-6.jpg";
 import { Project } from "@/components/ProjectDetailsDialog";
 import midixApp1 from "@/assets/projects/midix/app-icon.png";
 import midixApp2 from "@/assets/projects/midix/process.png";
-import midixApp3 from "@/assets/projects/midix/usage.png";
+import midixApp3 from "@/assets/projects/midix/usage.jpg";
 
 export const PROJECTS: Project[] = [
   {
