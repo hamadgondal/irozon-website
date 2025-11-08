@@ -7,6 +7,7 @@ import project3 from "@/assets/project-3.jpg";
 import project4 from "@/assets/project-4.jpg";
 import project5 from "@/assets/project-5.jpg";
 import project6 from "@/assets/project-6.jpg";
+import logoM from "@/assets/m-logo.jpg";
 
 const PortfolioGrid = () => {
   const [activeFilter, setActiveFilter] = useState("All Categories");
@@ -20,8 +21,8 @@ const PortfolioGrid = () => {
       id: 1,
       title: "The Dark Side",
       category: "Mobile App",
-      image: project1,
-      images: [project1, project2, project3],
+      image: logoM,
+      images: [logoM, project2, project3],
       client: "Dark Studios",
       year: "2024",
       description:
@@ -147,7 +148,7 @@ const PortfolioGrid = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -155,11 +156,10 @@ const PortfolioGrid = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
                 className="group cursor-pointer"
                 onClick={() => handleProjectClick(project)}
               >
-                <div className="relative overflow-hidden rounded-3xl bg-card shadow-lg aspect-square">
+                <div className="relative overflow-hidden rounded-3xl bg-card aspect-square">
                   <img
                     src={project.image}
                     alt={`${project.title} - ${project.category} project for ${project.client}`}
@@ -168,10 +168,12 @@ const PortfolioGrid = () => {
                     height="400"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                    <h3 className="text-2xl font-bold mb-1 text-white">{project.title}</h3>
-                    <p className="text-sm text-white/80">{project.category}</p>
-                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <h3 className="text-xl font-semibold uppercase text-foreground">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{project.category}</p>
                 </div>
               </motion.div>
             ))}

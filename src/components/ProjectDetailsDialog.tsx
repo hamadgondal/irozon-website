@@ -56,13 +56,11 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
           <>
             <DialogHeader>
               <DialogTitle className="text-3xl font-bold">{project.title}</DialogTitle>
-              <DialogDescription className="text-lg">
-                {project.category} Project
-              </DialogDescription>
+              <DialogDescription className="text-lg">{project.category} Project</DialogDescription>
             </DialogHeader>
 
             <div className="space-y-6">
-              <div className="relative aspect-video rounded-lg overflow-hidden group">
+              <div className="relative  rounded-lg overflow-hidden group">
                 <img
                   src={project.images[currentImageIndex]}
                   alt={`${project.title} - Image ${currentImageIndex + 1}`}
@@ -110,9 +108,7 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
 
               <div>
                 <h3 className="text-xl font-semibold mb-3">About the Project</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
+                <p className="text-muted-foreground leading-relaxed">{project.description}</p>
               </div>
 
               <div>
