@@ -107,7 +107,7 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
                   <p className="font-medium">{project.year}</p>
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Year</p>
+                  <p className="text-sm text-muted-foreground mb-1">Website</p>
                   <a
                     href={project.website}
                     target="_blank"
