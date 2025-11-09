@@ -17,6 +17,7 @@ export interface Project {
   image: string;
   images: string[];
   client: string;
+  website?: string;
   year: string;
   description: string;
   technologies: string[];
@@ -96,7 +97,7 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
                 )}
               </div>
 
-              <div className="grid grid-cols-2 gap-4 py-4 border-y border-border">
+              <div className="grid grid-cols-3 gap-4 py-4 border-y border-border">
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Client</p>
                   <p className="font-medium">{project.client}</p>
@@ -104,6 +105,17 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Year</p>
                   <p className="font-medium">{project.year}</p>
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Year</p>
+                  <a
+                    href={project.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="leading-relaxed font-medium hover:text-primary"
+                  >
+                    {project.website}
+                  </a>
                 </div>
               </div>
 

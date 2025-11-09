@@ -18,6 +18,7 @@ export const PROJECTS: Project[] = [
     image: midixApp1,
     images: [midixApp1, midixApp2, midixApp3],
     client: "Dark Studios",
+    website: "https://vinaz.se",
     year: "2024",
     description: `The Midicx app icon is a creative fusion of meaning and design. It combines the letter “M” from the app’s name with a heart, symbolizing care and compassion, and a pill shape, representing medicine.
     
@@ -33,6 +34,7 @@ export const PROJECTS: Project[] = [
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/02/Three-Scoops-of-Ice-Cream-on-Spoons.webp",
     images: [project2, project4, project5],
     client: "Tech Innovations Inc",
+    website: "https://vinaz.se",
     year: "2024",
     description:
       "An innovative design system that brings robotics and justice together through powerful visual metaphors and interactive elements.",
@@ -47,6 +49,7 @@ export const PROJECTS: Project[] = [
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Minimalist-Stone-Composition-m_f.png",
     images: [project3, project6, project1],
     client: "Flow Creative",
+    website: "https://vinaz.se",
     year: "2023",
     description:
       "A stunning photography series that captures the essence of color in motion, combining artistic vision with technical excellence.",
@@ -61,6 +64,7 @@ export const PROJECTS: Project[] = [
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Green-Character-in-Yellow-Hoodie-m_f.png",
     images: [project4, project1, project2],
     client: "Wellness Brand Co",
+    website: "https://vinaz.se",
     year: "2023",
     description:
       "A creative exploration of unexpected moments and their ripple effects, told through engaging visuals and interactive storytelling.",
@@ -75,6 +79,7 @@ export const PROJECTS: Project[] = [
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Whimsical-Character-in-a-Jar-m_f.png",
     images: [project5, project3, project6],
     client: "Dream Labs",
+    website: "https://vinaz.se",
     year: "2024",
     description:
       "An abstract design project that pushes the boundaries of digital art and user interface design, creating dreamlike experiences.",
@@ -89,6 +94,7 @@ export const PROJECTS: Project[] = [
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Person-with-VR-Headset-m_f.png",
     images: [project6, project2, project4],
     client: "Essence Studio",
+    website: "https://vinaz.se",
     year: "2023",
     description:
       "A minimalist photography project that strips away the unnecessary to reveal the true essence of subjects through clean composition.",
