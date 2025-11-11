@@ -80,7 +80,7 @@ const Services = () => {
                           {service.title}
                         </h2>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                          {service.description}
+                          {service.longDescription}
                         </p>
                       </div>
 
