@@ -3,11 +3,19 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 const Services = () => {
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-background">
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-primary/20 to-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.03)_0%,transparent_70%)]" />
+    <section className="py-32 px-6 relative overflow-hidden bg-background">
+      {/* Abstract geometric background */}
+      <div className="absolute inset-0 opacity-30">
+        {/* Large abstract blob shapes */}
+        <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-primary/10 rounded-[40%_60%_70%_30%/60%_30%_70%_40%] blur-3xl -translate-x-1/3 -translate-y-1/3 animate-[spin_20s_linear_infinite]" />
+        <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-primary/15 rounded-[60%_40%_30%_70%/40%_60%_70%_30%] blur-3xl translate-x-1/3 translate-y-1/3 animate-[spin_25s_linear_infinite_reverse]" />
+        <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-primary/8 rounded-[70%_30%_50%_50%/30%_70%_50%_50%] blur-2xl" />
+        
+        {/* Geometric shapes */}
+        <div className="absolute top-20 right-1/4 w-32 h-32 border-2 border-primary/20 rotate-45" />
+        <div className="absolute bottom-40 left-1/3 w-24 h-24 rounded-full border-2 border-primary/15" />
+        <div className="absolute top-1/3 right-1/3 w-40 h-40 border-2 border-primary/10 rotate-12 rounded-2xl" />
+      </div>
 
       <div className="max-w-7xl mx-auto relative">
         <motion.div
