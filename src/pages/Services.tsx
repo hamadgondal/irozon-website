@@ -66,12 +66,17 @@ const Services = () => {
                       transition={{ duration: 0.6, delay: 0.2 }}
                       className={`space-y-8 ${!isEven ? "lg:order-2" : ""}`}
                     >
-                      <div className="flex items-center gap-4">
-                        <span className="text-6xl md:text-7xl font-bold text-primary/20">
-                          {service.number}
-                        </span>
-                        <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                          <Icon className="w-8 h-8 text-primary" />
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-center gap-4">
+                          <span className="text-6xl md:text-7xl font-bold text-primary/20">
+                            {service.number}
+                          </span>
+                          <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                            <Icon className="w-8 h-8 text-primary" />
+                          </div>
+                        </div>
+                        <div className="px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                          <span className="text-sm font-semibold text-primary">{service.price}</span>
                         </div>
                       </div>
 
