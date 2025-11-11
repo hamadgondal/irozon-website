@@ -82,6 +82,9 @@ const Services = () => {
                         <p className="text-lg text-muted-foreground leading-relaxed">
                           {service.longDescription}
                         </p>
+                        {service.price && (
+                          <p className="mt-4 text-lg font-semibold text-primary">{service.price}</p>
+                        )}
                       </div>
 
                       <div className="space-y-3">

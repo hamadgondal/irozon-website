@@ -54,7 +54,7 @@ const News = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              News & <span className="text-primary">Insights</span>
+              News & Insights<span className="text-primary"></span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Ready to cut through the tech noise? Stay updated with our latest articles, actionable
