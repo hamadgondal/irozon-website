@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 const Services = () => {
   return (
-    <section className="py-32 px-6 relative overflow-hidden">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-br from-background via-primary/5 to-background">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-primary/20 to-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gradient-to-tl from-primary/20 to-primary/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.03)_0%,transparent_70%)]" />
 
       <div className="max-w-7xl mx-auto relative">
         <motion.div
