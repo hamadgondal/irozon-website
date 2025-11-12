@@ -3,6 +3,8 @@ import serviceMobile from "@/assets/service-mobile.jpg";
 import serviceWeb from "@/assets/service-web.jpg";
 import serviceBrand from "@/assets/service-brand.jpg";
 import serviceDesign from "@/assets/service-design.jpg";
+import serviceEcommerce from "@/assets/service-ecommerce.jpg";
+import serviceCloud from "@/assets/service-cloud.jpg";
 
 export const SERVICES_DETAIL = [
   {
@@ -78,7 +80,7 @@ export const SERVICES_DETAIL = [
     icon: Store,
     title: "E-commerce & Store Management",
     price: "from 5,999 SEK",
-    image: serviceDesign,
+    image: serviceEcommerce,
     gradient: "from-green-500/10 to-emerald-500/10",
     iconBg: "bg-gradient-to-br from-green-500 to-emerald-500",
     shortDescription: `Ready to launch your online shop and grow sales? We build high-converting e-commerce stores on platforms like Shopify and WooCommerce, and set you up with the tools to easily manage all your orders and inventory.`,
@@ -95,7 +97,7 @@ export const SERVICES_DETAIL = [
     icon: ShieldCheck,
     title: "IT Support & Cloud Care",
     price: "from 299 SEK/month",
-    image: serviceDesign,
+    image: serviceCloud,
     gradient: "from-green-500/10 to-emerald-500/10",
     iconBg: "bg-gradient-to-br from-green-500 to-emerald-500",
     shortDescription: `Stop worrying about tech problems and focus on your business. We provide proactive support, security monitoring, and secure cloud hosting to keep your websites and applications running fast, safely, and smoothly, 24/7.`,
