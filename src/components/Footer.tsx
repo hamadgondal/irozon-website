@@ -50,7 +50,7 @@ const Footer = () => {
 
               {/* Instagram Icon */}
               <motion.a
-                href="https://www.instagram.com/irozonllc/"
+                href="https://www.instagram.com/irozon.official/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit irozon on Instagram"
@@ -80,7 +80,7 @@ const Footer = () => {
 
               {/* Twitter Icon */}
               <motion.a
-                href="#"
+                href="https://x.com/irozon.official"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit irozon on Twitter"
