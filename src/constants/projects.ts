@@ -66,7 +66,9 @@ export const PROJECTS: Project[] = [
     isFeatured: false,
     image:
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Green-Character-in-Yellow-Hoodie-m_f.png",
-    images: [project4, project1, project2],
+    images: [
+      "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Green-Character-in-Yellow-Hoodie-m_f.png",
+    ],
     client: "Wellness Brand Co",
     website: "https://vinaz.se",
     year: "2023",
@@ -81,7 +83,9 @@ export const PROJECTS: Project[] = [
     isFeatured: false,
     image:
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Whimsical-Character-in-a-Jar-m_f.png",
-    images: [project5, project3, project6],
+    images: [
+      "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Whimsical-Character-in-a-Jar-m_f.png",
+    ],
     client: "Dream Labs",
     website: "https://vinaz.se",
     year: "2024",
@@ -96,7 +100,9 @@ export const PROJECTS: Project[] = [
     isFeatured: false,
     image:
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Person-with-VR-Headset-m_f.png",
-    images: [project6, project2, project4],
+    images: [
+      "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Person-with-VR-Headset-m_f.png",
+    ],
     client: "Essence Studio",
     website: "https://vinaz.se",
     year: "2023",
