@@ -79,28 +79,38 @@ const Services = () => {
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
                           {service.title}
                         </h2>
+                        <h3 className="text-xl md:text-2xl font-semibold mb-4 text-muted-foreground">
+                          {service.subtitle}
+                        </h3>
                         <p className="text-lg text-muted-foreground leading-relaxed">
                           {service.longDescription}
                         </p>
                         {service.price && (
-                          <p className="mt-4 text-lg font-semibold text-primary">{service.price}</p>
+                          <p className="mt-4 text-xl font-semibold text-primary">{service.price}</p>
                         )}
                       </div>
-
                       <div className="space-y-3">
-                        {service.details.map((detail, idx) => (
-                          <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
-                            className="flex items-center gap-3 text-foreground"
-                          >
-                            <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0" />
-                            <span className="text-base">{detail}</span>
-                          </motion.div>
-                        ))}
+                        {service.details.map((detail, idx) => {
+                          const splitIndex = detail.indexOf(":");
+                          const title = detail.substring(0, splitIndex);
+                          const description = detail.substring(splitIndex);
+                          return (
+                            <motion.div
+                              key={idx}
+                              initial={{ opacity: 0, x: -20 }}
+                              whileInView={{ opacity: 1, x: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
+                              className="flex items-start gap-3 text-foreground"
+                            >
+                              <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-2" />
+                              <span className="text-base text-muted-foreground">
+                                <span className="font-semibold text-foreground">{title}</span>
+                                {description}
+                              </span>
+                            </motion.div>
+                          );
+                        })}
                       </div>
 
                       <Button
