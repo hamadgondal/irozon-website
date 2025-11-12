@@ -5,6 +5,7 @@ import serviceBrand from "@/assets/service-brand.jpg";
 import serviceDesign from "@/assets/service-design.jpg";
 import serviceEcommerce from "@/assets/service-ecommerce.jpg";
 import serviceCloud from "@/assets/service-cloud.jpg";
+import indigoBrochure from "@/assets/projects/indigo/Indigo-Brochure-1.jpg";
 
 export const SERVICES_DETAIL = [
   {
@@ -72,7 +73,7 @@ export const SERVICES_DETAIL = [
     title: "UI/UX & Graphic Design",
     subtitle: "Beautiful Designs That Feel Effortless",
     price: "from 2,999 SEK",
-    image: serviceDesign,
+    image: indigoBrochure,
     gradient: "from-green-500/10 to-emerald-500/10",
     iconBg: "bg-gradient-to-br from-green-500 to-emerald-500",
     shortDescription:

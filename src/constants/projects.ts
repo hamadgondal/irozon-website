@@ -5,9 +5,15 @@ import project4 from "@/assets/project-4.jpg";
 import project5 from "@/assets/project-5.jpg";
 import project6 from "@/assets/project-6.jpg";
 import { Project } from "@/components/ProjectDetailsDialog";
-import midixApp1 from "@/assets/projects/midix/app-icon.png";
-import midixApp2 from "@/assets/projects/midix/process.png";
-import midixApp3 from "@/assets/projects/midix/usage.jpg";
+import midixApp1 from "@/assets/projects/midix/midix-app-icon.jpg";
+import midixApp2 from "@/assets/projects/midix/midix-app-icon-process.jpg";
+import midixApp3 from "@/assets/projects/midix/midix-app-icon-usage.jpg";
+import midixApp4 from "@/assets/projects/midix/midix-app-ui.jpg";
+import indigoBrochure1 from "@/assets/projects/indigo/Indigo-Brochure-1.jpg";
+import indigoBrochure2 from "@/assets/projects/indigo/Indigo-Brochure-2.jpg";
+import indigoBrochure3 from "@/assets/projects/indigo/Indigo-Brochure-3.jpg";
+import indigoBrochure4 from "@/assets/projects/indigo/Indigo-Brochure-4.jpg";
+import alMouj from "@/assets/projects/almouj/almouj-app.jpg";
 
 export const PROJECTS: Project[] = [
   {
@@ -16,8 +22,8 @@ export const PROJECTS: Project[] = [
     category: "Branding",
     isFeatured: true,
     image: midixApp1,
-    images: [midixApp1, midixApp2, midixApp3],
-    client: "Dark Studios",
+    images: [midixApp1, midixApp2, midixApp4, midixApp3],
+    client: "Midix",
     website: "https://vinaz.se",
     year: "2024",
     description: `The Midicx app icon is a creative fusion of meaning and design. It combines the letter “M” from the app’s name with a heart, symbolizing care and compassion, and a pill shape, representing medicine.
@@ -27,14 +33,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
-    title: "Justice Robot",
+    title: "Indigo Brochure",
     category: "Branding",
-    isFeatured: false,
-    image:
-      "https://theme.madsparrow.me/osty/wp-content/uploads/2025/02/Three-Scoops-of-Ice-Cream-on-Spoons.webp",
-    images: [project2, project4, project5],
-    client: "Tech Innovations Inc",
-    website: "https://vinaz.se",
+    isFeatured: true,
+    image: indigoBrochure1,
+    images: [indigoBrochure2, indigoBrochure3, indigoBrochure4],
+    client: "Indigo Oman",
+    website: "https://indigo-oman.com/",
     year: "2024",
     description:
       "An innovative design system that brings robotics and justice together through powerful visual metaphors and interactive elements.",
@@ -42,14 +47,13 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 3,
-    title: "Color Current",
+    title: "Al Mouj App",
     category: "Web Application",
-    isFeatured: false,
-    image:
-      "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Minimalist-Stone-Composition-m_f.png",
-    images: [project3, project6, project1],
-    client: "Flow Creative",
-    website: "https://vinaz.se",
+    isFeatured: true,
+    image: alMouj,
+    images: [alMouj],
+    client: "Al Mouj Muscat",
+    website: "https://www.almouj.com/en/",
     year: "2023",
     description:
       "A stunning photography series that captures the essence of color in motion, combining artistic vision with technical excellence.",
@@ -59,7 +63,7 @@ export const PROJECTS: Project[] = [
     id: 4,
     title: "Subsequent Sneeze",
     category: "UX/UI",
-    isFeatured: true,
+    isFeatured: false,
     image:
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Green-Character-in-Yellow-Hoodie-m_f.png",
     images: [project4, project1, project2],
@@ -74,7 +78,7 @@ export const PROJECTS: Project[] = [
     id: 5,
     title: "Abstract Dreams",
     category: "UX/UI",
-    isFeatured: true,
+    isFeatured: false,
     image:
       "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Whimsical-Character-in-a-Jar-m_f.png",
     images: [project5, project3, project6],
