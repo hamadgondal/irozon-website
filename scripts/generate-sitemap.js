@@ -13,6 +13,7 @@ const links = [
   { url: "/contact", changefreq: "monthly", priority: 0.8 },
   { url: "/services", changefreq: "monthly", priority: 0.8 },
   { url: "/projects", changefreq: "monthly", priority: 0.8 },
+  { url: "/about", changefreq: "monthly", priority: 0.8 },
   { url: "/news", changefreq: "weekly", priority: 0.8 },
 ];
 

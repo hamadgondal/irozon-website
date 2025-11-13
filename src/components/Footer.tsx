@@ -80,7 +80,7 @@ const Footer = () => {
 
               {/* Twitter Icon */}
               <motion.a
-                href="https://x.com/irozon.official"
+                href="https://x.com/irozon_official"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Visit irozon on Twitter"
@@ -152,7 +152,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="p-8  flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>©2025 irozon. All Rights Reserved.</p>
-          <p>organisationsnummer: 123xxx</p>
+          <p>organisationsnummer: 5595535658</p>
         </div>
       </div>
     </motion.footer>

@@ -22,6 +22,7 @@ const Navigation: React.FC = () => {
     { label: "Projects", href: "/projects", icon: Briefcase },
     { label: "Services", href: "/services", icon: Settings },
     { label: "News", href: "/news", icon: Newspaper },
+    { label: "About", href: "/about", icon: Settings },
     { label: "Contact", href: "/contact", icon: Mail },
   ];
 

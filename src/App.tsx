@@ -18,6 +18,7 @@ import ReactGA from "react-ga4";
 import Layout from "./components/Layout";
 import { HelmetProvider } from "react-helmet-async";
 import { FC } from "react";
+import About from "./pages/About";
 
 // 1. Define a TypeScript interface for the React component that includes the React Snap static property
 interface AppWithSnapPrecache extends FC {
@@ -50,6 +51,7 @@ const App: AppWithSnapPrecache = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/services" element={<Services />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />
               <Route path="/news" element={<News />} />
               <Route path="/news/:slug" element={<BlogPost />} />
               <Route path="/auth" element={<Auth />} />
