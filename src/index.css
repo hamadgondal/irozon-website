@@ -132,3 +132,9 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+::selection {
+  background: hsl(164 97% 39%);
+
+  color: hsl(0 0% 98%);
+}

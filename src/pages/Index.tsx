@@ -9,37 +9,35 @@ const Index = () => {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "irozon",
-    "url": "https://irozon.se",
-    "logo": "https://irozon.se/assets/irozon-banner.jpg",
-    "description": "irozon builds scalable digital experiences. Custom Web Development, Mobile Apps, E-commerce solutions, and Brand Identity design.",
-    "sameAs": [
+    name: "irozon",
+    url: "https://irozon.se",
+    logo: "https://irozon.se/assets/irozon-banner.jpg",
+    description:
+      "irozon builds scalable digital experiences. Custom Web Development, Mobile Apps, E-commerce solutions, and Brand Identity design.",
+    sameAs: [
       "https://www.facebook.com/irozon",
       "https://www.instagram.com/irozonllc/",
-      "https://www.linkedin.com/company/irozon"
+      "https://www.linkedin.com/company/irozon",
     ],
-    "contactPoint": {
+    contactPoint: {
       "@type": "ContactPoint",
-      "email": "hello@irozon.se",
-      "contactType": "Customer Service"
-    }
+      email: "hello@irozon.se",
+      contactType: "Customer Service",
+    },
   };
 
   return (
     <>
       <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(organizationSchema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
       </Helmet>
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="bg-background">
           <HeroSection />
         </section>
-
         {/* What We Offer Section */}
-        <section className="bg-[hsl(0,0%,100%)]" aria-labelledby="services-heading">
+        <section className="bg-[hsl(0,0%,100%)] py-20 px-6" aria-labelledby="services-heading">
           <Services />
         </section>
 
@@ -49,7 +47,7 @@ const Index = () => {
         </section>
 
         {/* Our Work Section */}
-        <section className="bg-[hsl(0,0%,100%)]" aria-labelledby="portfolio-heading">
+        <section className="bg-[hsl(0,0%,100%)] py-20 px-6" aria-labelledby="portfolio-heading">
           <PortfolioGrid />
         </section>
       </div>

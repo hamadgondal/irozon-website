@@ -33,8 +33,9 @@ const Projects = () => {
         <link rel="canonical" href="https://irozon.se/projects" />
       </Helmet>
       {/* Featured Work Section */}
+
       <section className="pt-16 py-20 px-6 bg-background">
-        <div className="max-w-7xl mx-auto">
+        <main className="py-20 px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +114,7 @@ const Projects = () => {
               ))}
             </motion.div>
           </AnimatePresence>
-        </div>
+        </main>
       </section>
 
       <ProjectDetailsDialog

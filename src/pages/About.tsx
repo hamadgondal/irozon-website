@@ -4,7 +4,7 @@ import { ArrowRight, Users, Target, Heart, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import irozonLogo from "@/assets/irozon-logo.jpg";
-import irozonLogoOrigin from "@/assets/irozon-logo-origin.png";
+import irozonLogoOrigin from "@/assets/logo-story-light.jpg";
 
 const About = () => {
   const navigate = useNavigate();
@@ -40,8 +40,7 @@ const About = () => {
         />
       </Helmet>
 
-      <main className="pt-16">
-        {/* Hero Section */}
+      <main className="py-20 px-6">
         <div className="px-6 py-20 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,7 +58,7 @@ const About = () => {
         </div>
 
         {/* Origin Story */}
-        <div className="bg-[hsl(0,0%,96%)]">
+        <section className="bg-[hsl(0,0%,96%)]">
           <div className="max-w-7xl mx-auto px-6 py-20">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* Content Side */}
@@ -70,13 +69,12 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="space-y-8"
               >
-                {/* <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                   <span className="text-6xl md:text-7xl font-bold text-primary/20">01</span>
                   <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                     <Users className="w-8 h-8 text-primary" />
                   </div>
-                </div> */}
-
+                </div>
                 <div>
                   <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
                     The irozon Origin Story
@@ -89,72 +87,64 @@ const About = () => {
                     creativity and engineering intersect. We wanted a name that captured both
                     worlds—something visually expressive, yet structured and purposeful.
                   </p>
-
-                  <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                    From Japanese, we took{" "}
-                    <span className="font-semibold text-foreground">iro(いろ)</span> — meaning
-                    color. It represents imagination, design, and the emotional dimension of every
-                    visual experience.
-                  </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                    From Greek, we drew inspiration from{" "}
-                    <span className="font-semibold text-foreground">zoni (ζώνη)</span> — meaning
-                    zone. It symbolizes space, structure, and the technical frameworks that make
-                    great ideas possible.
-                  </p>
-                  <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                    Like{" "}
-                    <a href="/" className="text-blue-500 underline hover:text-blue-700">
-                      Google
-                    </a>{" "}
-                    transforming "googol" into something memorable, we merged two concepts and
-                    removed the 'e'—refining them into something that feels right:{" "}
-                    <span className="font-semibold text-foreground">irozon.</span> We didn't just
-                    combine words. We forged a new identity.
-                  </p>
-                </div>
-
-                {/* <div className="space-y-3">
                   <motion.div
+                    key="iro"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.3 }}
-                    className="flex items-start gap-3 text-foreground"
+                    className="flex items-start gap-3 text-foreground mt-4"
                   >
                     <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-2" />
-                    <span className="text-base text-muted-foreground">
-                      <span className="font-semibold text-foreground">Creative Vision:</span> The
-                      art of visual storytelling and brand identity
+                    <span className="text-lg text-muted-foreground leading-relaxed">
+                      From<span className="font-semibold text-foreground"> Japanese</span>, we took{" "}
+                      <span className="font-semibold text-foreground">iro(いろ)</span> — meaning
+                      color. It represents imagination, design, and the emotional dimension of every
+                      visual experience.
                     </span>
                   </motion.div>
                   <motion.div
+                    key="zoni"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.4 }}
-                    className="flex items-start gap-3 text-foreground"
+                    className="flex items-start gap-3 text-foreground mt-4"
                   >
                     <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-2" />
-                    <span className="text-base text-muted-foreground">
-                      <span className="font-semibold text-foreground">Technical Excellence:</span>{" "}
-                      The science of scalable, reliable digital platforms
+                    <span className="text-lg text-muted-foreground leading-relaxed">
+                      From<span className="font-semibold text-foreground"> Greek</span>, we drew
+                      inspiration from{" "}
+                      <span className="font-semibold text-foreground">zoni (ζώνη)</span> — meaning
+                      zone. It symbolizes space, structure, and the technical frameworks that make
+                      great ideas possible.
                     </span>
                   </motion.div>
                   <motion.div
+                    key="google"
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.5 }}
-                    className="flex items-start gap-3 text-foreground"
+                    className="flex items-start gap-3 text-foreground mt-4"
                   >
-                    <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-2" />
-                    <span className="text-base text-muted-foreground">
-                      <span className="font-semibold text-foreground">Unified Approach:</span> Where
-                      both disciplines merge to create exceptional results
-                    </span>
+                    <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+                      Like{" "}
+                      <a
+                        href="https://www.google.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500"
+                      >
+                        Google
+                      </a>{" "}
+                      transforming "googol" into something memorable, we merged two concepts and
+                      removed the 'e'—refining them into something that feels right:{" "}
+                      <span className="font-semibold text-foreground">irozon.</span> We didn't just
+                      combine words. We forged a new identity.
+                    </p>
                   </motion.div>
-                </div> */}
+                </div>
               </motion.div>
 
               {/* Logo/Visual Side */}
@@ -178,7 +168,7 @@ const About = () => {
               </motion.div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Our Values */}
         <div className="bg-[hsl(0,0%,96%)]">
@@ -206,7 +196,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className="bg-background rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+                    className="relative p-8 lg:p-10 rounded-3xl bg-white/70 backdrop-blur-lg shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/40 transition-all duration-300 h-ful hover:cursor-pointer"
                   >
                     <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
                       <Icon className="w-8 h-8 text-primary" />
@@ -252,12 +242,12 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="space-y-8 lg:order-2"
               >
-                {/* <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4">
                   <span className="text-6xl md:text-7xl font-bold text-primary/20">02</span>
                   <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
                     <Target className="w-8 h-8 text-primary" />
                   </div>
-                </div> */}
+                </div>
 
                 <div>
                   <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
