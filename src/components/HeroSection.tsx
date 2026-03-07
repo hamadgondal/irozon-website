@@ -266,21 +266,25 @@ const HeroSection: React.FC = () => {
                 },
               }}
             >
-              <img
-                src={image.src}
-                alt={image.alt}
-                loading="lazy"
-                width={isMobile ? 120 : 240}
-                height={isMobile ? 120 : 240}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  borderRadius: "24px",
-                  boxShadow:
-                    "inset -1px 20px 20px 14px rgb(0 0 0 / 18%), 0 10px 20px -5px rgba(0, 0, 0, 0.3)",
-                }}
-              />
+              <div className="group relative w-full h-full overflow-hidden rounded-3xl">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  width={isMobile ? 120 : 240}
+                  height={isMobile ? 120 : 240}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{
+                    boxShadow:
+                      "inset -1px 20px 20px 14px rgb(0 0 0 / 18%), 0 10px 20px -5px rgba(0, 0, 0, 0.3)",
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-3">
+                  <span className="text-white font-bold text-center" style={{ fontSize: isMobile ? "0.65rem" : "1rem", lineHeight: 1.2 }}>
+                    {image.alt}
+                  </span>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         ))}
