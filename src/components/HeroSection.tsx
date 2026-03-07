@@ -161,7 +161,7 @@ const HeroSection: React.FC = () => {
     },
     {
       src: uxDesign,
-      alt: "UX Design 3D",
+      alt: "UX Design",
       rotation: 6,
       zIndex: 4,
       top: -30,
