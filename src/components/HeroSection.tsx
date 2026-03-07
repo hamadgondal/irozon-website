@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-// import { Button } from "@/components/ui/button";
 import SlidingButton from "./SlidingButton";
-// import { ArrowRight } from "lucide-react";
+import webApps from "../assets/hero/web-apps.jpg";
+import mobileApps from "../assets/hero/mobile-apps.jpg";
+import uxDesign from "../assets/hero/ux-design.jpg";
+import graphicDesigning from "../assets/hero/graphic-designing.jpg";
+import itSupport from "../assets/hero/it-support.jpg";
 
 interface SpringAnimation {
   element: HTMLElement;
@@ -136,36 +139,36 @@ const HeroSection: React.FC = () => {
 
   const images = [
     {
-      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Person-with-VR-Headset-m_f.png",
-      alt: "Person with VR Headset",
+      src: webApps,
+      alt: "Mobile apps",
       rotation: -8,
       zIndex: 1,
       top: 0,
     },
     {
-      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Minimalist-Stone-Composition-m_f.png",
-      alt: "Minimalist Stone Composition",
+      src: graphicDesigning,
+      alt: "Graphic designing",
       rotation: 5,
       zIndex: 2,
       top: -30,
     },
     {
-      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Whimsical-Character-in-a-Jar-m_f.png",
-      alt: "Whimsical Character in a Jar",
+      src: mobileApps,
+      alt: "Mobile apps",
       rotation: -3,
       zIndex: 3,
       top: 0,
     },
     {
-      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/02/Three-Scoops-of-Ice-Cream-on-Spoons.webp",
-      alt: "Three Scoops of Ice Cream",
+      src: uxDesign,
+      alt: "UX Design 3D",
       rotation: 6,
       zIndex: 4,
       top: -30,
     },
     {
-      src: "https://theme.madsparrow.me/osty/wp-content/uploads/2025/01/Green-Character-in-Yellow-Hoodie-m_f.png",
-      alt: "Green Character in Yellow Hoodie",
+      src: itSupport,
+      alt: "IT support and cloud care",
       rotation: -5,
       zIndex: 5,
       top: 0,
