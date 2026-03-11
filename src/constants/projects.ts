@@ -40,10 +40,10 @@ export const PROJECTS: Project[] = [
     images: [indigoBrochure2, indigoBrochure3, indigoBrochure4],
     client: "Indigo Oman",
     website: "https://indigo-oman.com/",
-    year: "2024",
+    year: "2021",
     description:
-      "An innovative design system that brings robotics and justice together through powerful visual metaphors and interactive elements.",
-    technologies: ["Figma", "React", "Framer Motion", "TypeScript"],
+      "A glimpse into how we transform big ideas into cohesive brand experiences. Every pixel and palette choice is designed to tell your unique story.",
+    technologies: ["Photoshop", "Illustrator"],
   },
   {
     id: 3,
@@ -54,10 +54,10 @@ export const PROJECTS: Project[] = [
     images: [alMouj],
     client: "Al Mouj Muscat",
     website: "https://www.almouj.com/en/",
-    year: "2023",
+    year: "2021",
     description:
-      "A stunning photography series that captures the essence of color in motion, combining artistic vision with technical excellence.",
-    technologies: ["Photography", "Adobe Suite", "Color Grading"],
+      "We designed and developed a custom iOS app that puts essential resident services right on their phones and tablets from maintenance requests to facility bookings simplifying daily life in Oman’s premier lifestyle destination.",
+    technologies: ["Swift", "Figma", "Google Maps API"],
   },
   {
     id: 4,

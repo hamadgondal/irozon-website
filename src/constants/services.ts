@@ -1,11 +1,10 @@
 import { Smartphone, Palette, Store, ShieldCheck, Layout, Sparkles } from "lucide-react";
-import serviceMobile from "@/assets/service-mobile.jpg";
-import serviceWeb from "@/assets/service-web.jpg";
-import serviceBrand from "@/assets/service-brand.jpg";
-import serviceDesign from "@/assets/service-design.jpg";
-import serviceEcommerce from "@/assets/service-ecommerce.jpg";
-import serviceCloud from "@/assets/service-cloud.jpg";
-import indigoBrochure from "@/assets/projects/indigo/Indigo-Brochure-1.jpg";
+import serviceMobile from "@/assets/services/mobile-apps.jpg";
+import serviceWeb from "@/assets/services/service-web.jpg";
+import serviceBrand from "@/assets/services/service-brand.jpg";
+import serviceDesign from "@/assets/services/service-design.jpg";
+import serviceEcommerce from "@/assets/services/service-ecommerce.jpg";
+import serviceCloud from "@/assets/services/service-cloud.jpg";
 
 export const SERVICES_DETAIL = [
   {
@@ -18,7 +17,7 @@ export const SERVICES_DETAIL = [
       "We craft bespoke, high-performance apps that are fast, stable, and seriously smooth.",
     gradient: "from-green-500/10 to-emerald-500/10",
     iconBg: "bg-gradient-to-br from-green-500 to-emerald-500",
-    shortDescription: `Turn your brilliant vision into a flawless mobile app. We build fast, reliable applications for both iPhones and Androids. It's easy to use, glitch-free, and exactly what your users will love.`,
+    shortDescription: `Turn your brilliant vision into a flawless mobile app. We build fast, reliable applications for both iPhones and Androids.`,
     longDescription: `Got a great idea? We bring it to life. Our team handles all the techy complexities to build a stunning mobile app that works perfectly on every device. From launch to growth, we build a scalable foundation for your business success.`,
     details: [
       `iOS & Android Excellence: Get a custom native app, perfectly tailored for either platform and its users.`,
@@ -31,7 +30,7 @@ export const SERVICES_DETAIL = [
     number: "02",
     icon: Layout,
     title: "Web Development",
-    subtitle: "Fast, Secure & Lead-Generating Websites",
+    subtitle: "Fast, Secure & Lead Generating Websites",
     price: "from 3,800 SEK",
     image: serviceWeb,
     gradient: "from-green-500/10 to-emerald-500/10",
@@ -39,25 +38,25 @@ export const SERVICES_DETAIL = [
     shortDescription:
       "Stunning websites & powerful web apps that drive leads and run your business 24/7. Built for speed, security, and serious growth.",
     longDescription:
-      "Your business needs a digital home that works as hard as you do. We build fast, flexible websites and custom web apps designed to attract customers, streamline operations, and scale with your ambitions—no tech jargon, just results that matter.",
+      "Your business needs a digital home that works as hard as you do. We build fast, flexible websites and custom web apps designed to attract customers, streamline operations, and scale with your ambitions no tech jargon, just results that matter.",
     details: [
       "Responsive Website Design: Beautiful, mobile-first sites that look perfect on every device.",
       "Custom Web Applications: Powerful tools like client portals, booking systems, and dashboards that automate your workflow.",
-      "SEO & Performance Built-In: Fast-loading sites optimized for Google visibility and superior user experience from day one.",
-      "Easy Content Management: Simple systems that let you update content yourself—no developer needed.",
+      "SEO & Performance Builtin: Fast-loading sites optimized for Google visibility and superior user experience from day one.",
+      "Easy Content Management: Simple systems that let you update content yourself no developer needed.",
     ],
   },
   {
     number: "03",
     icon: Sparkles,
-    title: "Brand Identity & Strategy",
+    title: "Brand Identity",
     subtitle: "Make Your Mark with Memorable Branding",
     price: "from 499 SEK/hour",
     image: serviceBrand,
     gradient: "from-green-500/10 to-emerald-500/10",
     iconBg: "bg-gradient-to-br from-green-500 to-emerald-500",
     shortDescription:
-      "Stand out with a complete brand identity—logo, colors, voice, and strategy—that makes you instantly memorable and professionally undeniable.",
+      "Stop blending in. We’ll help you find your unique look colors, logo, and a solid plan so when people see your business, they don't just notice it; they remember it.",
     longDescription:
       "Your brand is your promise to customers. We craft complete visual identities and strategic messaging that connects emotionally, builds trust, and sets you apart. From logo to language, we create a cohesive brand experience that turns viewers into loyal fans.",
     details: [
@@ -73,11 +72,11 @@ export const SERVICES_DETAIL = [
     title: "UI/UX & Graphic Design",
     subtitle: "Beautiful Designs That Feel Effortless",
     price: "from 2,999 SEK",
-    image: indigoBrochure,
+    image: serviceDesign,
     gradient: "from-green-500/10 to-emerald-500/10",
     iconBg: "bg-gradient-to-br from-green-500 to-emerald-500",
     shortDescription:
-      "We craft intuitive, stunning designs that users love. From apps to marketing graphics—professional visuals that engage and convert.",
+      "We craft intuitive, stunning designs that users love. From apps to marketing graphics professional visuals that engage and convert.",
     longDescription:
       "Great design should work beautifully and feel effortless. We blend strategic UX thinking with stunning visual design to create interfaces that are both gorgeous and intuitive. The result? Happy users who stay engaged and become loyal customers.",
     details: [
@@ -110,14 +109,14 @@ export const SERVICES_DETAIL = [
   {
     number: "06",
     icon: ShieldCheck,
-    title: "IT Support & Cloud Care",
+    title: "IT Support & Cloud Services",
     subtitle: "Proactive Tech Care for Peace of Mind",
     price: "from 299 SEK/month",
     image: serviceCloud,
     gradient: "from-green-500/10 to-emerald-500/10",
     iconBg: "bg-gradient-to-br from-green-500 to-emerald-500",
     shortDescription:
-      "Stop worrying about tech problems. We provide proactive support, security monitoring, and cloud hosting to keep your business running smoothly 24/7.",
+      "Let’s get tech off your 'to-do' list. We handle the 24/7 security monitoring and cloud hosting, so you can stop worrying about downtime and get back to actually running your business.",
     longDescription:
       "Your technology should work for you, not the other way around. Our proactive IT support and cloud care prevent issues before they happen. With secure hosting, automated backups, and expert support, we ensure your digital operations run seamlessly so you can focus on your business.",
     details: [

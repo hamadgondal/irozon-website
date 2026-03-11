@@ -51,7 +51,7 @@ const About = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">About Us</h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               Where design meets technology. Where creative vision meets technical excellence. We're
-              irozon—your partners in building digital experiences that define your brand and drive
+              irozon your partners in building digital experiences that define your brand and drive
               real growth.
             </p>
           </motion.div>
@@ -84,8 +84,8 @@ const About = () => {
                   </h3>
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     irozon began with a simple idea: the best digital experiences happen where
-                    creativity and engineering intersect. We wanted a name that captured both
-                    worlds—something visually expressive, yet structured and purposeful.
+                    creativity and engineering intersect. We wanted a name that captured both worlds
+                    something visually expressive, yet structured and purposeful.
                   </p>
                   <motion.div
                     key="iro"
@@ -139,7 +139,7 @@ const About = () => {
                         Google
                       </a>{" "}
                       transforming "googol" into something memorable, we merged two concepts and
-                      removed the 'e'—refining them into something that feels right:{" "}
+                      removed the 'e' refining them into something that feels right:{" "}
                       <span className="font-semibold text-foreground">irozon.</span> We didn't just
                       combine words. We forged a new identity.
                     </p>
@@ -259,7 +259,7 @@ const About = () => {
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     We believe every growing business deserves access to exceptional digital
                     craftsmanship. Our mission is to bridge the gap between ambitious vision and
-                    technical reality—where your ideas meet the design and development that brings
+                    technical reality where your ideas meet the design and development that brings
                     them to life.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed mt-4">

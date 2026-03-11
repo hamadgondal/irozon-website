@@ -29,7 +29,6 @@ const Projects = () => {
           name="description"
           content="Explore irozon's featured work. See case studies and success stories for beautiful designs, eye-catching interactions, and development that delivers real business results."
         />
-        {/* Optional: Add canonical link if your site uses one */}
         <link rel="canonical" href="https://irozon.se/projects" />
       </Helmet>
       {/* Featured Work Section */}
@@ -45,7 +44,7 @@ const Projects = () => {
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">Featured Work</h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-              Beautiful designs. Eye-catching interactions. Development that delivers. We believe
+              Beautiful designs. Eye catching interactions. Development that delivers. We believe
               quality speaks for itself. Explore the projects where we helped our clients achieve
               real, measurable success.
             </p>

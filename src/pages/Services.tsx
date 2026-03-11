@@ -29,8 +29,8 @@ const Services = () => {
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">What We Do Best</h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              We offer complete digital solutions—from brand identity and professional UI/UX design
-              to secure cloud management—making your path to growth clear and efficient.
+              We offer complete digital solutions from brand identity and professional UI/UX design
+              to secure cloud management making your path to growth clear and efficient.
             </p>
           </motion.div>
         </div>

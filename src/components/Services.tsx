@@ -1,9 +1,10 @@
 import { SERVICES_DETAIL } from "@/constants/services";
 import { motion } from "framer-motion";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 const Services = () => {
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-background-secondary">
+    <section className="py-0 md:py-32 px-6 relative overflow-hidden bg-background-secondary">
       <div className="max-w-7xl mx-auto relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,8 +20,8 @@ const Services = () => {
             What We Offer
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            We partner with businesses like yours to design, build, and manage high-performance
-            websites, mobile apps, and IT systems—all tailored to help you grow.
+            We partner with businesses like yours to design, build, and manage high performance
+            websites, mobile apps, and IT systems all tailored to help you grow.
           </p>
         </motion.div>
 
@@ -42,13 +43,13 @@ const Services = () => {
                   />
                   <div className="relative p-8 lg:p-10 rounded-3xl bg-white/70 backdrop-blur-lg shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary/40 transition-all duration-300 h-full">
                     <div className="flex flex-col h-full">
-                      <motion.div
+                      {/* <motion.div
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         transition={{ duration: 0.3 }}
                         className={`w-16 h-16 rounded-2xl ${service.iconBg} flex items-center justify-center mb-6 shadow-lg`}
                       >
                         <Icon className="w-8 h-8 text-white" />
-                      </motion.div>
+                      </motion.div> */}
                       <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground ">
                         {service.title}
                       </h3>

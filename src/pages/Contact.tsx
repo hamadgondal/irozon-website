@@ -116,7 +116,7 @@ const Contact = () => {
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Let's turn your vision into a digital reality. Whether you have a specific project
               ready to go or just want to explore possibilities, we'd love to chat. Send us a quick
-              message—we always respond quickly!
+              message we always respond quickly!
             </p>
           </motion.div>
 

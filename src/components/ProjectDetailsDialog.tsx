@@ -66,11 +66,11 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    
+
     if (isLeftSwipe) {
       handleNextImage();
     } else if (isRightSwipe) {
@@ -89,7 +89,7 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
             </DialogHeader>
 
             <div className="space-y-6">
-              <div 
+              <div
                 className="relative rounded-lg overflow-hidden group"
                 onTouchStart={onTouchStart}
                 onTouchMove={onTouchMove}
@@ -157,7 +157,7 @@ const ProjectDetailsDialog = ({ project, isOpen, onClose }: ProjectDetailsDialog
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold mb-3">Technologies Used</h3>
+                <h3 className="text-xl font-semibold mb-3">Built with</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech) => (
                     <span
