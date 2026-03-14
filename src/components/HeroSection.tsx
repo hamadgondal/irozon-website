@@ -183,7 +183,7 @@ const HeroSection: React.FC = () => {
             color: "#262626",
           }}
         >
-          Digital Experiences That Define Your Brand
+          {t("hero.title")}
         </h1>
       </motion.div>
 
