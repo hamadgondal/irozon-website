@@ -96,7 +96,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="lg:col-span-1">
-            <h4 className="font-semibold mb-6 text-sm">Contact</h4>
+            <h4 className="font-semibold mb-6 text-sm">{t("footer.contact")}</h4>
             <motion.a
               href="mailto:hello@irozon.se"
               className="inline-block text-lg font-medium text-foreground hover:text-primary transition-colors duration-300"
