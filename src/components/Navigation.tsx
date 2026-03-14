@@ -18,14 +18,15 @@ const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const menuItems: MenuItem[] = [
-    { label: "Home", href: "/", icon: Home },
-    { label: "Projects", href: "/projects", icon: Briefcase },
-    { label: "Services", href: "/services", icon: Settings },
-    { label: "News", href: "/news", icon: Newspaper },
-    { label: "About", href: "/about", icon: Settings },
-    { label: "Contact", href: "/contact", icon: Mail },
+    { label: t("nav.home"), href: "/", icon: Home },
+    { label: t("nav.projects"), href: "/projects", icon: Briefcase },
+    { label: t("nav.services"), href: "/services", icon: Settings },
+    { label: t("nav.news"), href: "/news", icon: Newspaper },
+    { label: t("nav.about"), href: "/about", icon: Settings },
+    { label: t("nav.contact"), href: "/contact", icon: Mail },
   ];
 
   useEffect(() => {
