@@ -150,8 +150,8 @@ const Footer = () => {
       {/* Copyright - MOVED BACK INTO the max-w-7xl container to maintain its width */}
       <div className="max-w-7xl mx-auto px-6">
         <div className="p-8  flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>©2025 irozon. All Rights Reserved.</p>
-          <p>Organisation number: 5595535658</p>
+          <p>{t("footer.copyright")}</p>
+          <p>{t("footer.orgNumber")}</p>
         </div>
       </div>
     </motion.footer>
