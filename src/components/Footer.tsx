@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Instagram, Linkedin, Facebook, Dribbble, Twitter } from "lucide-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  const marqueeText =
-    "Mobile apps • iOS & Android apps • Custom websites • Web engineering • Brand identity • UI/UX design • Shopify & WooCommerce • Build to scale • Code & color fusion";
+  const { t } = useTranslation();
+  const marqueeText = t("footer.marquee");
   const textParts = marqueeText.split(" • ");
 
   return (
