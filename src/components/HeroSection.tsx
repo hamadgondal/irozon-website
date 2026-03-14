@@ -26,6 +26,7 @@ const HeroSection: React.FC = () => {
   const imagesRef = useRef<HTMLDivElement>(null);
   const springsRef = useRef<SpringAnimation[]>([]);
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
