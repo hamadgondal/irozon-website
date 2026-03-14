@@ -297,7 +297,7 @@ const HeroSection: React.FC = () => {
             justifyContent: "center",
           }}
         >
-          <SlidingButton title={`Let's Build It`} navigateTo="/contact" />
+          <SlidingButton title={t("hero.cta")} navigateTo="/contact" />
           {/* <motion.button
             key="lets-talk-button"
             whileTap={{ scale: 0.95 }}
