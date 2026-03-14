@@ -286,10 +286,7 @@ const HeroSection: React.FC = () => {
             margin: "0 auto",
           }}
         >
-          You have a vision. We have the creative and technical expertise to bring it to life. From
-          the smallest detail ("Pixel") to the largest system ("Platform"), we build scalable web
-          and mobile apps, create powerful brand identities, and deliver stunning graphic design
-          that truly cuts through the noise.
+          {t("hero.description")}
         </p>
         <div
           style={{
