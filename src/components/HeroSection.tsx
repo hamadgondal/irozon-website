@@ -140,41 +140,11 @@ const HeroSection: React.FC = () => {
   }, []);
 
   const images = [
-    {
-      src: webApps,
-      alt: "Web Apps",
-      rotation: -8,
-      zIndex: 1,
-      top: 0,
-    },
-    {
-      src: graphicDesigning,
-      alt: "Graphic Designing",
-      rotation: 5,
-      zIndex: 2,
-      top: -30,
-    },
-    {
-      src: mobileApps,
-      alt: "Mobile Apps",
-      rotation: -3,
-      zIndex: 3,
-      top: 0,
-    },
-    {
-      src: uxDesign,
-      alt: "UX Design",
-      rotation: 6,
-      zIndex: 4,
-      top: -30,
-    },
-    {
-      src: itSupport,
-      alt: "IT Support & Cloud Care",
-      rotation: -5,
-      zIndex: 5,
-      top: 0,
-    },
+    { src: webApps, alt: t("hero.images.webApps"), rotation: -8, zIndex: 1, top: 0 },
+    { src: graphicDesigning, alt: t("hero.images.graphicDesigning"), rotation: 5, zIndex: 2, top: -30 },
+    { src: mobileApps, alt: t("hero.images.mobileApps"), rotation: -3, zIndex: 3, top: 0 },
+    { src: uxDesign, alt: t("hero.images.uxDesign"), rotation: 6, zIndex: 4, top: -30 },
+    { src: itSupport, alt: t("hero.images.itSupport"), rotation: -5, zIndex: 5, top: 0 },
   ];
 
   return (
