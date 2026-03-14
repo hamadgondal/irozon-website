@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import IrozonLogo from "./IrozonLogo";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 interface MenuItem {
   label: string;
