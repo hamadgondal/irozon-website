@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import IrozonLogo from "./IrozonLogo";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 interface MenuItem {
   label: string;
@@ -16,14 +18,15 @@ const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   const menuItems: MenuItem[] = [
-    { label: "Home", href: "/", icon: Home },
-    { label: "Projects", href: "/projects", icon: Briefcase },
-    { label: "Services", href: "/services", icon: Settings },
-    { label: "News", href: "/news", icon: Newspaper },
-    { label: "About", href: "/about", icon: Settings },
-    { label: "Contact", href: "/contact", icon: Mail },
+    { label: t("nav.home"), href: "/", icon: Home },
+    { label: t("nav.projects"), href: "/projects", icon: Briefcase },
+    { label: t("nav.services"), href: "/services", icon: Settings },
+    { label: t("nav.news"), href: "/news", icon: Newspaper },
+    { label: t("nav.about"), href: "/about", icon: Settings },
+    { label: t("nav.contact"), href: "/contact", icon: Mail },
   ];
 
   useEffect(() => {
@@ -61,6 +64,7 @@ const Navigation: React.FC = () => {
 
         {/* Desktop Menu with Modern Active Indicator */}
         <div className="hidden h-full md:flex items-center gap-8">
+          <LanguageSwitcher />
           {menuItems.map((item) => {
             const isActive = location.pathname === item.href;
 
@@ -100,6 +104,7 @@ const Navigation: React.FC = () => {
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
             <nav className="flex flex-col gap-4 mt-8">
+              <LanguageSwitcher />
               {menuItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.href;

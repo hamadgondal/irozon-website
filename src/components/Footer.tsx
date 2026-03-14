@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Instagram, Linkedin, Facebook, Dribbble, Twitter } from "lucide-react";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
-  const marqueeText =
-    "Mobile apps • iOS & Android apps • Custom websites • Web engineering • Brand identity • UI/UX design • Shopify & WooCommerce • Build to scale • Code & color fusion";
+  const { t } = useTranslation();
+  const marqueeText = t("footer.marquee");
   const textParts = marqueeText.split(" • ");
 
   return (
@@ -22,16 +23,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-8 items-end">
           {/* Large Heading */}
           <div className="lg:col-span-1">
-            <h2 className="text-5xl md:text-6xl lg:text-5xl font-bold leading-tight">
-              LET'S MAKE
-              <br />
-              IT HAPPEN.
+            <h2 className="text-5xl md:text-6xl lg:text-5xl font-bold leading-tight whitespace-pre-line">
+              {t("footer.heading")}
             </h2>
           </div>
 
           {/* Social Media */}
           <div className="lg:col-span-1">
-            <h3 className="font-semibold mb-6 text-sm">Social Media</h3>
+            <h3 className="font-semibold mb-6 text-sm">{t("footer.socialMedia")}</h3>
             <div className="flex gap-4">
               {/* Facebook Icon */}
               <motion.a
@@ -97,7 +96,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div className="lg:col-span-1">
-            <h4 className="font-semibold mb-6 text-sm">Contact</h4>
+            <h4 className="font-semibold mb-6 text-sm">{t("footer.contact")}</h4>
             <motion.a
               href="mailto:hello@irozon.se"
               className="inline-block text-lg font-medium text-foreground hover:text-primary transition-colors duration-300"
@@ -151,8 +150,8 @@ const Footer = () => {
       {/* Copyright - MOVED BACK INTO the max-w-7xl container to maintain its width */}
       <div className="max-w-7xl mx-auto px-6">
         <div className="p-8  flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>©2025 irozon. All Rights Reserved.</p>
-          <p>Organisation number: 5595535658</p>
+          <p>{t("footer.copyright")}</p>
+          <p>{t("footer.orgNumber")}</p>
         </div>
       </div>
     </motion.footer>

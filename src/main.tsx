@@ -1,9 +1,9 @@
 // src/main.tsx
 
-// Changed from 'react-dom/client' to 'react-dom/client' for modern usage
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import "./i18n";
 
 const container = document.getElementById("root")!;
 

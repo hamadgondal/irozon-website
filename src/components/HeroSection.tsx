@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import SlidingButton from "./SlidingButton";
+import { useTranslation } from "react-i18next";
 import webApps from "../assets/hero/web-apps.jpg";
 import mobileApps from "../assets/hero/mobile-apps.jpg";
 import uxDesign from "../assets/hero/ux-design.jpg";
@@ -25,6 +26,7 @@ const HeroSection: React.FC = () => {
   const imagesRef = useRef<HTMLDivElement>(null);
   const springsRef = useRef<SpringAnimation[]>([]);
   const [isMobile, setIsMobile] = React.useState(window.innerWidth <= 768);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -138,41 +140,11 @@ const HeroSection: React.FC = () => {
   }, []);
 
   const images = [
-    {
-      src: webApps,
-      alt: "Web Apps",
-      rotation: -8,
-      zIndex: 1,
-      top: 0,
-    },
-    {
-      src: graphicDesigning,
-      alt: "Graphic Designing",
-      rotation: 5,
-      zIndex: 2,
-      top: -30,
-    },
-    {
-      src: mobileApps,
-      alt: "Mobile Apps",
-      rotation: -3,
-      zIndex: 3,
-      top: 0,
-    },
-    {
-      src: uxDesign,
-      alt: "UX Design",
-      rotation: 6,
-      zIndex: 4,
-      top: -30,
-    },
-    {
-      src: itSupport,
-      alt: "IT Support & Cloud Care",
-      rotation: -5,
-      zIndex: 5,
-      top: 0,
-    },
+    { src: webApps, alt: t("hero.images.webApps"), rotation: -8, zIndex: 1, top: 0 },
+    { src: graphicDesigning, alt: t("hero.images.graphicDesigning"), rotation: 5, zIndex: 2, top: -30 },
+    { src: mobileApps, alt: t("hero.images.mobileApps"), rotation: -3, zIndex: 3, top: 0 },
+    { src: uxDesign, alt: t("hero.images.uxDesign"), rotation: 6, zIndex: 4, top: -30 },
+    { src: itSupport, alt: t("hero.images.itSupport"), rotation: -5, zIndex: 5, top: 0 },
   ];
 
   return (
@@ -211,7 +183,7 @@ const HeroSection: React.FC = () => {
             color: "#262626",
           }}
         >
-          Digital Experiences That Define Your Brand
+          {t("hero.title")}
         </h1>
       </motion.div>
 
@@ -314,10 +286,7 @@ const HeroSection: React.FC = () => {
             margin: "0 auto",
           }}
         >
-          You have a vision. We have the creative and technical expertise to bring it to life. From
-          the smallest detail ("Pixel") to the largest system ("Platform"), we build scalable web
-          and mobile apps, create powerful brand identities, and deliver stunning graphic design
-          that truly cuts through the noise.
+          {t("hero.description")}
         </p>
         <div
           style={{
@@ -328,7 +297,7 @@ const HeroSection: React.FC = () => {
             justifyContent: "center",
           }}
         >
-          <SlidingButton title={`Let's Build It`} navigateTo="/contact" />
+          <SlidingButton title={t("hero.cta")} navigateTo="/contact" />
           {/* <motion.button
             key="lets-talk-button"
             whileTap={{ scale: 0.95 }}
