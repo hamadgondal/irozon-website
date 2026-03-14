@@ -4,6 +4,7 @@ import ProjectDetailsDialog, { Project } from "./ProjectDetailsDialog";
 import { PROJECTS } from "@/constants/projects";
 import { useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
+import { useTranslation } from "react-i18next";
 
 const PortfolioGrid = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -16,6 +17,7 @@ const PortfolioGrid = () => {
     setSelectedProject(project);
     setIsDialogOpen(true);
   };
+  const { t } = useTranslation();
 
   return (
     <section className="py-20 px-6">
@@ -28,10 +30,11 @@ const PortfolioGrid = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground"
         >
-          Discover Our Work
+          {t("portfolioGrid.heading")}
         </motion.h2>
         <p className="text-lg md:text-xl text-muted-foreground text-center mb-16">
-          Where ideas take shape and innovation comes to life.
+          {" "}
+          {t("portfolioGrid.description")}
         </p>
 
         {/* Project Grid */}
@@ -84,7 +87,7 @@ const PortfolioGrid = () => {
             }}
           >
             <Button size="lg" className="group rounded-xl" onClick={() => navigate("/projects")}>
-              Explore More
+              {t("portfolioGrid.cta")}
             </Button>
           </div>
         </AnimatePresence>

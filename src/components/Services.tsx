@@ -1,8 +1,9 @@
 import { SERVICES_DETAIL } from "@/constants/services";
 import { motion } from "framer-motion";
-import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 const Services = () => {
+  const { t } = useTranslation();
   return (
     <section className="py-0 md:py-32 px-6 relative overflow-hidden bg-background-secondary">
       <div className="max-w-7xl mx-auto relative">
@@ -17,11 +18,10 @@ const Services = () => {
             id="services-heading"
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground"
           >
-            What We Offer
+            {t("services.title")}
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            We partner with businesses like yours to design, build, and manage high performance
-            websites, mobile apps, and IT systems all tailored to help you grow.
+            {t("services.description")}
           </p>
         </motion.div>
 
@@ -51,13 +51,15 @@ const Services = () => {
                         <Icon className="w-8 h-8 text-white" />
                       </motion.div> */}
                       <h3 className="text-2xl lg:text-3xl font-bold mb-4 text-foreground ">
-                        {service.title}
+                        {t(service.titleKey)}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed text-base lg:text-lg flex-grow">
-                        {service.shortDescription}
+                        {t(service.shortDescKey)}
                       </p>
-                      {service.price && (
-                        <p className="mt-4 text-lg font-semibold text-primary">{service.price}</p>
+                      {service.priceKey && (
+                        <p className="mt-4 text-lg font-semibold text-primary">
+                          {t(service.priceKey)}
+                        </p>
                       )}
 
                       <motion.div

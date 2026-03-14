@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ClientCarousel = () => {
   const clients = [
@@ -14,7 +15,7 @@ const ClientCarousel = () => {
   ];
 
   const duplicatedClients = [...clients, ...clients, ...clients];
-
+  const { t } = useTranslation();
   return (
     <section className="py-20 px-6 bg-muted/30">
       <div className="max-w-6xl mx-auto">
@@ -25,11 +26,14 @@ const ClientCarousel = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 id="clients-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            A Portfolio Defined by Quality, Not Scale
+          <h2
+            id="clients-heading"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground"
+          >
+            {t("clients.heading")}
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            We've had the privilege to work with some of the most innovative companies
+            {t("clients.description")}
           </p>
         </motion.div>
 

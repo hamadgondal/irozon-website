@@ -64,10 +64,8 @@ const Navigation: React.FC = () => {
 
         {/* Desktop Menu with Modern Active Indicator */}
         <div className="hidden h-full md:flex items-center gap-8">
-          <LanguageSwitcher />
           {menuItems.map((item) => {
             const isActive = location.pathname === item.href;
-
             return (
               <Link
                 key={item.label}
@@ -93,6 +91,7 @@ const Navigation: React.FC = () => {
               </Link>
             );
           })}
+          <LanguageSwitcher />
         </div>
 
         {/* Mobile Menu */}
