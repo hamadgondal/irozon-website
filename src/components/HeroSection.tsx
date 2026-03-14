@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import SlidingButton from "./SlidingButton";
+import { useTranslation } from "react-i18next";
 import webApps from "../assets/hero/web-apps.jpg";
 import mobileApps from "../assets/hero/mobile-apps.jpg";
 import uxDesign from "../assets/hero/ux-design.jpg";
