@@ -23,10 +23,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-8 items-end">
           {/* Large Heading */}
           <div className="lg:col-span-1">
-            <h2 className="text-5xl md:text-6xl lg:text-5xl font-bold leading-tight">
-              LET'S MAKE
-              <br />
-              IT HAPPEN.
+            <h2 className="text-5xl md:text-6xl lg:text-5xl font-bold leading-tight whitespace-pre-line">
+              {t("footer.heading")}
             </h2>
           </div>
 
