@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Social Media */}
           <div className="lg:col-span-1">
-            <h3 className="font-semibold mb-6 text-sm">Social Media</h3>
+            <h3 className="font-semibold mb-6 text-sm">{t("footer.socialMedia")}</h3>
             <div className="flex gap-4">
               {/* Facebook Icon */}
               <motion.a
