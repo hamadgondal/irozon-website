@@ -1,12 +1,14 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { SERVICES_DETAIL } from "@/constants/services";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 const Services = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-background">
@@ -16,7 +18,6 @@ const Services = () => {
           name="description"
           content="Explore irozon's core services: Custom Web Development, Mobile App Engineering, Brand Identity, and secure IT Support. Let's build your success."
         />
-        {/* Add canonical, Open Graph, etc., here */}
       </Helmet>
       <main className="py-20 px-6">
         {/* Hero Section */}
@@ -27,10 +28,11 @@ const Services = () => {
             transition={{ duration: 0.6 }}
             className="max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">What We Do Best</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+              {t("services.pageTitle")}
+            </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              We offer complete digital solutions from brand identity and professional UI/UX design
-              to secure cloud management making your path to growth clear and efficient.
+              {t("services.pageDescription")}
             </p>
           </motion.div>
         </div>
@@ -40,6 +42,8 @@ const Services = () => {
           {SERVICES_DETAIL.map((service, index) => {
             const Icon = service.icon;
             const isEven = index % 2 === 0;
+            const itemKey = `services.items.${index}`;
+            const details = t(`${itemKey}.details`, { returnObjects: true }) as string[];
 
             return (
               <motion.div
@@ -77,40 +81,43 @@ const Services = () => {
 
                       <div>
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-                          {service.title}
+                          {t(`${itemKey}.title`)}
                         </h2>
                         <h3 className="text-xl md:text-2xl font-semibold mb-4 text-muted-foreground">
-                          {service.subtitle}
+                          {t(`${itemKey}.subtitle`)}
                         </h3>
                         <p className="text-lg text-muted-foreground leading-relaxed">
-                          {service.longDescription}
+                          {t(`${itemKey}.longDescription`)}
                         </p>
-                        {service.price && (
-                          <p className="mt-4 text-xl font-semibold text-primary">{service.price}</p>
+                        {t(`${itemKey}.price`) && (
+                          <p className="mt-4 text-xl font-semibold text-primary">
+                            {t(`${itemKey}.price`)}
+                          </p>
                         )}
                       </div>
                       <div className="space-y-3">
-                        {service.details.map((detail, idx) => {
-                          const splitIndex = detail.indexOf(":");
-                          const title = detail.substring(0, splitIndex);
-                          const description = detail.substring(splitIndex);
-                          return (
-                            <motion.div
-                              key={idx}
-                              initial={{ opacity: 0, x: -20 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
-                              className="flex items-start gap-3 text-foreground"
-                            >
-                              <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-2" />
-                              <span className="text-base text-muted-foreground">
-                                <span className="font-semibold text-foreground">{title}</span>
-                                {description}
-                              </span>
-                            </motion.div>
-                          );
-                        })}
+                        {Array.isArray(details) &&
+                          details.map((detail, idx) => {
+                            const splitIndex = detail.indexOf(":");
+                            const title = detail.substring(0, splitIndex);
+                            const description = detail.substring(splitIndex);
+                            return (
+                              <motion.div
+                                key={idx}
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
+                                className="flex items-start gap-3 text-foreground"
+                              >
+                                <div className="w-2 h-2 rounded-full bg-primary flex-shrink-0 mt-2" />
+                                <span className="text-base text-muted-foreground">
+                                  <span className="font-semibold text-foreground">{title}</span>
+                                  {description}
+                                </span>
+                              </motion.div>
+                            );
+                          })}
                       </div>
 
                       <Button
@@ -118,7 +125,7 @@ const Services = () => {
                         className="group rounded-xl"
                         onClick={() => navigate("/contact")}
                       >
-                        Let's Discuss
+                        {t("services.cta")}
                         <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                       </Button>
                     </motion.div>
@@ -133,7 +140,7 @@ const Services = () => {
                       <div className="relative aspect-[1/1] rounded-3xl overflow-hidden shadow-2xl">
                         <img
                           src={service.image}
-                          alt={`${service.title} service illustration`}
+                          alt={`${t(`${itemKey}.title`)} service illustration`}
                           loading="lazy"
                           width="600"
                           height="600"
