@@ -182,6 +182,19 @@ const sv = {
         design: "UI/UX Design",
       },
     },
+    news: {
+      title: "Nyheter & Insikter",
+      description:
+        "Redo att skära igenom teknikbruset? Håll dig uppdaterad med våra senaste artiklar, praktiska tips och verkliga berättelser om webbutveckling, design och digital tillväxt. Kunskap som hjälper ditt företag växa.",
+      metaTitle: "Nyheter & Insikter | Praktiska tips för webb, appar och digital tillväxt",
+      metaDescription:
+        "Redo att skära igenom teknikbruset? Håll dig uppdaterad med irozons senaste artiklar, praktiska tips och verkliga berättelser om webbutveckling, design och digital tillväxt.",
+      readMore: "Läs mer",
+      noPosts: "Inga blogginlägg ännu. Kom tillbaka snart!",
+      backToNews: "Tillbaka till Nyheter",
+      notFoundTitle: "Blogginlägg hittades inte",
+      notFoundDescription: "Blogginlägget du letar efter finns inte.",
+    },
     about: {
       helmet: {
         title: "Om irozon - Vår historia, vision och värderingar",
