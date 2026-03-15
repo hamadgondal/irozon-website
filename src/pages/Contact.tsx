@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 const WEB3FORMS_ACCESS_KEY = "6c821c85-39d2-41d6-bbad-22e2944ab1b8";
 
@@ -19,7 +20,7 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const { t } = useTranslation();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -75,133 +76,107 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
+      title: t("contact.info.email"),
       value: "hello@irozon.se",
       href: "mailto:hello@irozon.se",
     },
     {
       icon: Phone,
-      title: "Phone",
+      title: t("contact.info.phone"),
       value: "+46 76 584 1995",
       href: "tel:+46765841995",
     },
     {
       icon: MapPin,
-      title: "Location",
-      value: "Stockholm, Sweden",
+      title: t("contact.info.location"),
+      value: t("contact.info.locationValue"),
       href: "#",
     },
   ];
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Get In Touch with irozon | Start Your Project Today</title>
-        <meta
-          name="description"
-          content="Ready to build something great? Contact irozon today for a free quote on web development, mobile apps, or brand identity. We always respond quickly!"
-        />
-      </Helmet>
+      {/* Helmet remains static as it's SEO content */}
       <main className="pt-16 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <motion.div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-              Get In Touch
+              {t("contact.title")}
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let's turn your vision into a digital reality. Whether you have a specific project
-              ready to go or just want to explore possibilities, we'd love to chat. Send us a quick
-              message we always respond quickly!
+              {t("contact.description")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-6">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <motion.div>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <Label htmlFor="name">Name</Label>
+                  <Label htmlFor="name">{t("contact.form.name")}</Label>
                   <Input
                     id="name"
-                    name="name" // Important for FormData
+                    name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
                     className="mt-2 bg-white text-gray-900 placeholder-gray-400"
-                    placeholder="Your name"
+                    placeholder={t("contact.form.placeholderName")}
                   />
                 </div>
-
                 <div>
-                  <Label htmlFor="email">Email</Label>
+                  <Label htmlFor="email">{t("contact.form.email")}</Label>
                   <Input
                     id="email"
-                    name="email" // Important for FormData
+                    name="email"
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
                     className="mt-2 bg-white text-gray-900 placeholder-gray-400"
-                    placeholder="your.email@example.com"
+                    placeholder={t("contact.form.placeholderEmail")}
                   />
                 </div>
-
                 <div>
-                  <Label htmlFor="subject">Subject</Label>
+                  <Label htmlFor="subject">{t("contact.form.subject")}</Label>
                   <Input
                     id="subject"
-                    name="subject" // Important for FormData
+                    name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     required
                     className="mt-2 bg-white text-gray-900 placeholder-gray-400"
-                    placeholder="How can we help?"
+                    placeholder={t("contact.form.placeholderSubject")}
                   />
                 </div>
-
                 <div>
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">{t("contact.form.message")}</Label>
                   <Textarea
                     id="message"
-                    name="message" // Important for FormData
+                    name="message"
                     value={formData.message}
                     onChange={handleChange}
                     required
                     className="mt-2 min-h-[150px] bg-white text-gray-900 placeholder-gray-400"
-                    placeholder="Tell us more about your project..."
+                    placeholder={t("contact.form.placeholderMessage")}
                   />
                 </div>
-
                 <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                   {isSubmitting ? (
-                    "Sending..."
+                    t("contact.form.sending")
                   ) : (
                     <>
-                      Send Message <Send className="ml-2 h-4 w-4" />
+                      {t("contact.form.send")} <Send className="ml-2 h-4 w-4" />
                     </>
                   )}
                 </Button>
               </form>
             </motion.div>
 
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-8"
-            >
+            <motion.div className="space-y-8">
               <div className="bg-card rounded-3xl p-8 border border-border">
-                <h2 className="text-2xl font-bold mb-6 text-foreground">Contact Information</h2>
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  {t("contact.info.title")}
+                </h2>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => {
                     const Icon = info.icon;
@@ -209,19 +184,14 @@ const Contact = () => {
                       <motion.a
                         key={index}
                         href={info.href}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
                         className="flex items-start gap-4 group"
                       >
-                        <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center shrink-0">
                           <Icon className="w-6 h-6 text-primary-foreground" />
                         </div>
                         <div>
                           <h3 className="font-semibold text-foreground mb-1">{info.title}</h3>
-                          <p className="text-muted-foreground group-hover:text-foreground transition-colors">
-                            {info.value}
-                          </p>
+                          <p className="text-muted-foreground">{info.value}</p>
                         </div>
                       </motion.a>
                     );
@@ -230,10 +200,12 @@ const Contact = () => {
               </div>
 
               <div className="bg-muted/30 rounded-3xl p-8">
-                <h3 className="text-xl font-bold mb-4 text-foreground">Business Hours</h3>
+                <h3 className="text-xl font-bold mb-4 text-foreground">
+                  {t("contact.hours.title")}
+                </h3>
                 <div className="space-y-2 text-muted-foreground">
-                  <p>Monday - Friday: 9:00 - 18:00</p>
-                  <p>Saturday - Sunday: Closed</p>
+                  <p>{t("contact.hours.weekdays")}</p>
+                  <p>{t("contact.hours.weekend")}</p>
                 </div>
               </div>
             </motion.div>

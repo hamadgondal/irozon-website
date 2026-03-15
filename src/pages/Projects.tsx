@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import ProjectDetailsDialog, { Project } from "@/components/ProjectDetailsDialog";
 import { PROJECTS } from "@/constants/projects";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All Categories");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { t } = useTranslation();
 
   const categories = ["All Categories", "Mobile App", "Branding", "Web Application", "UX/UI"];
 
@@ -42,11 +44,11 @@ const Projects = () => {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">Featured Work</h1>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-foreground">
+              {t("projects.title")}
+            </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-              Beautiful designs. Eye catching interactions. Development that delivers. We believe
-              quality speaks for itself. Explore the projects where we helped our clients achieve
-              real, measurable success.
+              {t("projects.description")}
             </p>
           </motion.div>
 

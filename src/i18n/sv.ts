@@ -82,6 +82,107 @@ const sv = {
       marquee:
         "Mobilappar • iOS & Android-appar • Skräddarsydda webbplatser • Webbutveckling • Varumärkesidentitet • UI/UX-design • Shopify & WooCommerce • Bygg för att skala • Kod & färgfusion",
     },
+    contact: {
+      title: "Kontakta oss",
+      description:
+        "Låt oss förvandla din vision till digital verklighet. Oavsett om du har ett specifikt projekt redo eller bara vill utforska möjligheter, hör gärna av dig. Skicka ett snabbt meddelande – vi svarar alltid snabbt!",
+      form: {
+        name: "Namn",
+        email: "E-post",
+        subject: "Ämne",
+        message: "Meddelande",
+        placeholderName: "Ditt namn",
+        placeholderEmail: "din.epost@exempel.se",
+        placeholderSubject: "Hur kan vi hjälpa till?",
+        placeholderMessage: "Berätta mer om ditt projekt...",
+        send: "Skicka meddelande",
+        sending: "Skickar...",
+      },
+      info: {
+        title: "Kontaktinformation",
+        email: "E-post",
+        phone: "Telefon",
+        location: "Plats",
+        locationValue: "Stockholm, Sverige",
+      },
+      hours: {
+        title: "Öppettider",
+        weekdays: "Måndag - Fredag: 09:00 - 18:00",
+        weekend: "Lördag - Söndag: Stängt",
+      },
+    },
+    projects: {
+      title: "Utvalda Projekt",
+      description:
+        "Vacker design. Iögonfallande interaktioner. Utveckling som levererar. Vi tror att kvalitet talar för sig själv. Utforska projekten där vi hjälpte våra klienter att uppnå verklig, mätbar framgång.",
+      viewProject: "Visa projekt",
+      visitSite: "Besök webbplats",
+      filterAll: "Alla projekt",
+      categories: {
+        web: "Webbutveckling",
+        mobile: "Mobilappar",
+        design: "UI/UX Design",
+      },
+    },
+    about: {
+      helmet: {
+        title: "Om irozon - Vår historia, vision och värderingar",
+        description:
+          "Upptäck historien bakom irozon och vårt uppdrag att skapa kraftfulla digitala upplevelser.",
+      },
+      hero: {
+        title: "Om Oss",
+        description:
+          "Där design möter teknologi. Där kreativ vision möter teknisk excellens. Vi är irozon, din partner i att bygga digitala upplevelser som definierar ditt varumärke och driver verklig tillväxt.",
+      },
+      origin: {
+        title: "Historien om irozon",
+        subtitle: "Där Design Möter Teknologi",
+        p1: "irozon började med en enkel idé: de bästa digitala upplevelserna skapas där kreativitet och ingenjörskonst möts. Vi ville ha ett namn som fångade båda världarna – något visuellt uttrycksfullt, men samtidigt strukturerat och målmedvetet.",
+        japanese: {
+          label: "Från japanskan,",
+          text: "tog vi iro (いろ) — som betyder färg. Det representerar fantasi, design och den emotionella dimensionen av varje visuell upplevelse.",
+        },
+        greek: {
+          label: "Från grekiskan,",
+          text: "hämtade vi inspiration från zoni (ζώνη) — som betyder zon. Det symboliserar utrymme, struktur och de tekniska ramverken som gör bra idéer möjliga.",
+        },
+        conclusion:
+          "Vi slog samman dessa koncept och förfinade dem till något som kändes helt rätt:",
+      },
+      values: {
+        title: "Våra Värderingar",
+        subtitle: "Principerna bakom varje pixel och varje rad kod",
+        items: [
+          {
+            title: "Design med syfte",
+            description:
+              "Varje färg och varje interaktion tjänar ett syfte. Vi skapar inte bara för estetik – vi designar för effekt.",
+          },
+          {
+            title: "Byggt för att hålla",
+            description:
+              "Vackra gränssnitt förtjänar solida grunder. Vi skapar upplevelser som är lika robusta i sin teknik som de är eleganta i sin design.",
+          },
+          {
+            title: "Partnerskap före löften",
+            description:
+              "Ingen jargong. Vi tror på ärliga samtal, transparenta processer och resultat som talar för sig själva.",
+          },
+        ],
+      },
+      mission: {
+        title: "Vårt Uppdrag",
+        p1: "Vi anser att varje växande företag förtjänar tillgång till exceptionellt digitalt hantverk. Vårt uppdrag är att överbrygga klyftan mellan ambitiös vision och teknisk verklighet.",
+        p2: "Oavsett om du börjar från noll eller är redo att skala upp, är vi med dig från koncept till lansering. Inget fluff, bara genomtänkt design och lösningar som driver verkliga resultat.",
+      },
+      cta: {
+        title: "Redo att bygga något extraordinärt?",
+        subtitle:
+          "Du kommer med visionen. Vi står för hantverket. Låt oss skapa något som fungerar.",
+        button: "Låt oss förverkliga det",
+      },
+    },
   },
 };
 

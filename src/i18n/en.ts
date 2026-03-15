@@ -84,6 +84,99 @@ const en = {
       marquee:
         "Mobile apps • iOS & Android apps • Custom websites • Web engineering • Brand identity • UI/UX design • Shopify & WooCommerce • Build to scale • Code & color fusion",
     },
+
+    contact: {
+      title: "Get In Touch",
+      description:
+        "Let's turn your vision into a digital reality. Whether you have a specific project ready to go or just want to explore possibilities, we'd love to chat. Send us a quick message—we always respond quickly!",
+      form: {
+        name: "Name",
+        email: "Email",
+        subject: "Subject",
+        message: "Message",
+        placeholderName: "Your name",
+        placeholderEmail: "your.email@example.com",
+        placeholderSubject: "How can we help?",
+        placeholderMessage: "Tell us more about your project...",
+        send: "Send Message",
+        sending: "Sending...",
+      },
+      info: {
+        title: "Contact Information",
+        email: "Email",
+        phone: "Phone",
+        location: "Location",
+        locationValue: "Stockholm, Sweden",
+      },
+      hours: {
+        title: "Business Hours",
+        weekdays: "Monday - Friday: 9:00 - 18:00",
+        weekend: "Saturday - Sunday: Closed",
+      },
+    },
+    projects: {
+      title: "Featured Work",
+      description:
+        "Beautiful designs. Eye-catching interactions. Development that delivers. We believe quality speaks for itself. Explore the projects where we helped our clients achieve real, measurable success.",
+      viewProject: "View Project",
+      visitSite: "Visit Website",
+      filterAll: "All Projects",
+      categories: {
+        web: "Web Development",
+        mobile: "Mobile Apps",
+        design: "UI/UX Design",
+      },
+    },
+    about: {
+      helmet: {
+        title: "About irozon - Our Story, Mission, and Values",
+        description: "Discover irozon's origin story and our mission to build digital experiences.",
+      },
+      hero: {
+        title: "About Us",
+        description:
+          "Where design meets technology. We're irozon, your partners in building digital experiences that drive real growth.",
+      },
+      origin: {
+        title: "The irozon Origin Story",
+        subtitle: "Where Design Meets Technology",
+        p1: "irozon began with a simple idea: the best digital experiences happen where creativity and engineering intersect.",
+        japanese: {
+          label: "From Japanese,",
+          text: "we took iro(いろ) — meaning color. It represents imagination and design.",
+        },
+        greek: {
+          label: "From Greek,",
+          text: "we took zoni (ζώνη) — meaning zone. It symbolizes space and technical structure.",
+        },
+        conclusion: "We merged these concepts and refined them into something that feels right:",
+      },
+      values: {
+        title: "Our Values",
+        subtitle: "The principles behind every pixel and every line of code",
+        items: [
+          {
+            title: "Design with Intent",
+            description: "We don't create for aesthetics alone—we design for impact.",
+          },
+          { title: "Build to Last", description: "Refined design backed by robust engineering." },
+          {
+            title: "Partnership over Promises",
+            description: "Honest conversations, transparent processes, and real outcomes.",
+          },
+        ],
+      },
+      mission: {
+        title: "Our Mission",
+        p1: "We believe every growing business deserves access to exceptional digital craftsmanship.",
+        p2: "No fluff, no jargon. Just thoughtful design and solutions that drive results.",
+      },
+      cta: {
+        title: "Ready to Build Something Extraordinary?",
+        subtitle: "You bring the vision. We bring the craft.",
+        button: "Let's Make It Happen",
+      },
+    },
   },
 };
 
