@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "react-i18next";
 
 interface BlogPost {
   id: string;
@@ -20,6 +21,7 @@ interface BlogPost {
 }
 
 const News = () => {
+  const { t } = useTranslation();
   const { data: posts, isLoading } = useQuery({
     queryKey: ["blog-posts"],
     queryFn: async () => {
@@ -36,15 +38,10 @@ const News = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>News & Insights | Actionable Tips for Web, Apps, and Digital Growth</title>
-        <meta
-          name="description"
-          content="Ready to cut through the tech noise? Stay updated with irozon's latest articles, actionable tips, and real-world stories on web development, design, and digital growth."
-        />
-        {/* Optional: Add Open Graph tags tailored for reading content */}
+        <title>{t("news.metaTitle")}</title>
+        <meta name="description" content={t("news.metaDescription")} />
         <meta property="og:type" content="article" />
       </Helmet>
-      {/* Hero Section */}
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
           <motion.div
@@ -54,16 +51,13 @@ const News = () => {
             className="text-center mb-16"
           >
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              News & Insights<span className="text-primary"></span>
+              {t("news.title")}<span className="text-primary"></span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Ready to cut through the tech noise? Stay updated with our latest articles, actionable
-              tips, and real world stories on web development, design, and digital growth. Knowledge
-              that helps your business grow.
+              {t("news.description")}
             </p>
           </motion.div>
 
-          {/* Blog Posts Grid */}
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -123,7 +117,7 @@ const News = () => {
                           </div>
                         </div>
                         <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
-                          Read more <ArrowRight className="h-4 w-4" />
+                          {t("news.readMore")} <ArrowRight className="h-4 w-4" />
                         </div>
                       </CardContent>
                     </Card>
@@ -133,7 +127,7 @@ const News = () => {
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-xl text-muted-foreground">No blog posts yet. Check back soon!</p>
+              <p className="text-xl text-muted-foreground">{t("news.noPosts")}</p>
             </div>
           )}
         </div>

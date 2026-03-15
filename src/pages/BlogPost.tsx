@@ -6,6 +6,7 @@ import { Calendar, User, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format } from "date-fns";
+import { useTranslation } from "react-i18next";
 
 interface BlogPost {
   id: string;
@@ -21,6 +22,7 @@ interface BlogPost {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
+  const { t } = useTranslation();
 
   const { data: post, isLoading } = useQuery({
     queryKey: ["blog-post", slug],
@@ -56,14 +58,12 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background py-20 px-6">
         <div className="container mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
-          <p className="text-muted-foreground mb-8">
-            The blog post you're looking for doesn't exist.
-          </p>
+          <h1 className="text-4xl font-bold mb-4">{t("news.notFoundTitle")}</h1>
+          <p className="text-muted-foreground mb-8">{t("news.notFoundDescription")}</p>
           <Link to="/news">
             <Button>
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to News
+              {t("news.backToNews")}
             </Button>
           </Link>
         </div>
@@ -75,15 +75,13 @@ const BlogPost = () => {
     <div className="min-h-screen bg-background">
       <article className="py-20 px-6">
         <div className="container mx-auto max-w-4xl">
-          {/* Back Button */}
           <Link to="/news">
             <Button variant="ghost" className="mb-8">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to News
+              {t("news.backToNews")}
             </Button>
           </Link>
 
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -94,9 +92,7 @@ const BlogPost = () => {
                 {post.category}
               </span>
             </div>
-
             <h1 className="text-4xl md:text-5xl font-bold mb-6">{post.title}</h1>
-
             <div className="flex items-center gap-6 text-muted-foreground mb-8">
               <div className="flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
@@ -109,7 +105,6 @@ const BlogPost = () => {
             </div>
           </motion.div>
 
-          {/* Featured Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -123,7 +118,6 @@ const BlogPost = () => {
             />
           </motion.div>
 
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -136,7 +130,6 @@ const BlogPost = () => {
             />
           </motion.div>
 
-          {/* Footer */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -146,7 +139,7 @@ const BlogPost = () => {
             <Link to="/news">
               <Button>
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to News
+                {t("news.backToNews")}
               </Button>
             </Link>
           </motion.div>

@@ -185,6 +185,19 @@ const en = {
         design: "UI/UX Design",
       },
     },
+    news: {
+      title: "News & Insights",
+      description:
+        "Ready to cut through the tech noise? Stay updated with our latest articles, actionable tips, and real world stories on web development, design, and digital growth. Knowledge that helps your business grow.",
+      metaTitle: "News & Insights | Actionable Tips for Web, Apps, and Digital Growth",
+      metaDescription:
+        "Ready to cut through the tech noise? Stay updated with irozon's latest articles, actionable tips, and real-world stories on web development, design, and digital growth.",
+      readMore: "Read more",
+      noPosts: "No blog posts yet. Check back soon!",
+      backToNews: "Back to News",
+      notFoundTitle: "Blog Post Not Found",
+      notFoundDescription: "The blog post you're looking for doesn't exist.",
+    },
     about: {
       helmet: {
         title: "About irozon - Our Story, Mission, and Values",
